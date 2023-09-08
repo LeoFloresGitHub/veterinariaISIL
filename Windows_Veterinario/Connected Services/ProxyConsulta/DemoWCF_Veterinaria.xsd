@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DemoWCF_Veterinaria" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DemoWCF_Veterinaria" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfConsultaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConsultaDC" nillable="true" type="tns:ConsultaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConsultaDC" nillable="true" type="tns:ArrayOfConsultaDC" />
+  <xs:complexType name="ConsultaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Total" type="xs:double" />
+      <xs:element minOccurs="0" name="ape_cliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_veterinario" type="xs:int" />
+      <xs:element minOccurs="0" name="fec_consulta" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_consulta" type="xs:int" />
+      <xs:element minOccurs="0" name="nom_cliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nom_mascota" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsultaDC" nillable="true" type="tns:ConsultaDC" />
+  <xs:complexType name="ArrayOfConsultaDCVet">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConsultaDCVet" nillable="true" type="tns:ConsultaDCVet" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConsultaDCVet" nillable="true" type="tns:ArrayOfConsultaDCVet" />
+  <xs:complexType name="ConsultaDCVet">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ape_veterinario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_veterinario" type="xs:int" />
+      <xs:element minOccurs="0" name="fec_consulta" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_consulta" type="xs:int" />
+      <xs:element minOccurs="0" name="nom_mascota" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nom_veterinario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsultaDCVet" nillable="true" type="tns:ConsultaDCVet" />
+  <xs:complexType name="ArrayOfConsultaDCEsp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConsultaDCEsp" nillable="true" type="tns:ConsultaDCEsp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConsultaDCEsp" nillable="true" type="tns:ArrayOfConsultaDCEsp" />
+  <xs:complexType name="ConsultaDCEsp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Especie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_esp" type="xs:short" />
+      <xs:element minOccurs="0" name="cod_mascota" type="xs:int" />
+      <xs:element minOccurs="0" name="nom_mascota" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsultaDCEsp" nillable="true" type="tns:ConsultaDCEsp" />
+</xs:schema>

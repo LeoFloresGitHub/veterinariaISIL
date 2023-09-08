@@ -1,0 +1,554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBVeterinariaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="cod_cliente" />
+    </Key>
+    <Property Name="cod_cliente" Type="int" Nullable="false" />
+    <Property Name="nom_cliente" Type="nvarchar" MaxLength="30" />
+    <Property Name="ape_cliente" Type="nvarchar" MaxLength="30" />
+    <Property Name="dni_cli" Type="int" />
+    <Property Name="id_Ubigeo" Type="nchar" MaxLength="6" />
+    <Property Name="dirección" Type="nvarchar" MaxLength="30" />
+    <Property Name="tel_cliente" Type="nvarchar" MaxLength="30" />
+    <Property Name="Usu_Registro" Type="varchar" MaxLength="20" />
+    <Property Name="est_cli" Type="int" />
+    <Property Name="sexo" Type="char" MaxLength="2" />
+    <Property Name="email" Type="nvarchar" MaxLength="40" />
+    <Property Name="fec_registro" Type="date" />
+    <Property Name="num_registro" Type="nchar" MaxLength="10" />
+    <Property Name="fec_Ult_Mod" Type="date" />
+    <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Consulta">
+    <Key>
+      <PropertyRef Name="id_consulta" />
+    </Key>
+    <Property Name="id_consulta" Type="int" Nullable="false" />
+    <Property Name="fec_consulta" Type="date" />
+    <Property Name="cod_veterinario" Type="int" />
+    <Property Name="cod_mascota" Type="int" />
+    <Property Name="est_consulta" Type="int" />
+    <Property Name="prec_consulta" Type="money" Nullable="false" />
+    <Property Name="igv" Type="money" Nullable="false" />
+    <Property Name="diagnostico" Type="text" />
+    <Property Name="fec_proxconsulta" Type="date" />
+    <Property Name="fec_Ult_Mod" Type="date" />
+    <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Det_Consulta">
+    <Key>
+      <PropertyRef Name="id_Det_consulta" />
+    </Key>
+    <Property Name="id_Det_consulta" Type="int" Nullable="false" />
+    <Property Name="id_consulta" Type="int" Nullable="false" />
+    <Property Name="cod_medicamento" Type="int" />
+    <Property Name="observaciones" Type="varchar" MaxLength="159" />
+    <Property Name="tratamiento" Type="varchar" MaxLength="159" />
+    <Property Name="fec_registro" Type="date" />
+    <Property Name="fec_Ult_Mod" Type="date" />
+    <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Esp">
+    <Key>
+      <PropertyRef Name="cod_esp" />
+    </Key>
+    <Property Name="cod_esp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="des_esp" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Especialidad">
+    <Key>
+      <PropertyRef Name="cod_especialidad" />
+    </Key>
+    <Property Name="cod_especialidad" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Mascota">
+    <Key>
+      <PropertyRef Name="cod_mascota" />
+    </Key>
+    <Property Name="cod_mascota" Type="int" Nullable="false" />
+    <Property Name="cod_esp" Type="int" />
+    <Property Name="nom_mascota" Type="nvarchar" MaxLength="40" />
+    <Property Name="cod_cliente" Type="int" />
+    <Property Name="nom_cliente" Type="nvarchar" MaxLength="30" />
+    <Property Name="ape_cliente" Type="nvarchar" MaxLength="30" />
+    <Property Name="foto" Type="image" />
+    <Property Name="sexo" Type="char" MaxLength="2" />
+    <Property Name="color" Type="nvarchar" MaxLength="50" />
+    <Property Name="fec_nacimiento" Type="date" />
+    <Property Name="est_mascota" Type="int" />
+    <Property Name="fec_Ult_Mod" Type="date" />
+    <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Medicamento">
+    <Key>
+      <PropertyRef Name="cod_medicamento" />
+    </Key>
+    <Property Name="cod_medicamento" Type="int" Nullable="false" />
+    <Property Name="des_medicamento" Type="nvarchar" MaxLength="30" />
+    <Property Name="cod_tipomedicamento" Type="int" />
+    <Property Name="prec_med" Type="money" Nullable="false" />
+    <Property Name="igv" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ubigeo">
+    <Key>
+      <PropertyRef Name="id_ubigeo" />
+    </Key>
+    <Property Name="id_ubigeo" Type="nchar" MaxLength="6" Nullable="false" />
+    <Property Name="IdDepa" Type="nvarchar" MaxLength="255" />
+    <Property Name="IdProv" Type="nvarchar" MaxLength="255" />
+    <Property Name="IdDist" Type="nvarchar" MaxLength="255" />
+    <Property Name="Departamento" Type="nvarchar" MaxLength="255" />
+    <Property Name="Provincia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Distrito" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Login_Usuario" />
+    </Key>
+    <Property Name="Login_Usuario" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="pass_Usuario" Type="varchar" MaxLength="20" />
+    <Property Name="niv_Usuario" Type="int" />
+    <Property Name="est_Usuario" Type="int" />
+    <Property Name="fec_Usuario" Type="date" />
+    <Property Name="Usu_Registro" Type="varchar" MaxLength="20" />
+    <Property Name="fec_Ult_Mod" Type="date" />
+    <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Veterinario">
+    <Key>
+      <PropertyRef Name="cod_veterinario" />
+    </Key>
+    <Property Name="cod_veterinario" Type="int" Nullable="false" />
+    <Property Name="nom_veterinario" Type="nvarchar" MaxLength="30" />
+    <Property Name="ape_veterinario" Type="nvarchar" MaxLength="30" />
+    <Property Name="Usu_Registro" Type="varchar" MaxLength="20" />
+    <Property Name="sueldo" Type="int" />
+    <Property Name="dni_vet" Type="int" />
+    <Property Name="foto_vet" Type="nvarchar" MaxLength="50" />
+    <Property Name="est_vet" Type="int" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="80" />
+    <Property Name="tel_veterinario" Type="nvarchar" MaxLength="30" />
+    <Property Name="cod_especialidad" Type="int" />
+    <Property Name="id_ubigeo" Type="nchar" MaxLength="6" />
+    <Property Name="fec_Ult_Mod" Type="date" />
+    <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBVeterinaria.dbo.vw_VistaCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_VistaCliente">
+    <Key>
+      <PropertyRef Name="cod_cliente" />
+    </Key>
+    <Property Name="cod_cliente" Type="int" Nullable="false" />
+    <Property Name="dni_cli" Type="int" />
+    <Property Name="Cliente" Type="nvarchar" MaxLength="61" />
+    <Property Name="dirección" Type="nvarchar" MaxLength="30" />
+    <Property Name="tel_cliente" Type="nvarchar" MaxLength="30" />
+    <Property Name="est_cli" Type="int" />
+    <Property Name="fec_registro" Type="date" />
+    <Property Name="Estado" Type="varchar" MaxLength="8" />
+    <Property Name="Sexo" Type="varchar" MaxLength="9" />
+    <Property Name="departamento" Type="nvarchar" MaxLength="255" />
+    <Property Name="provincia" Type="nvarchar" MaxLength="255" />
+    <Property Name="distrito" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBVeterinaria.dbo.vw_VistaConsulta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_VistaConsulta">
+    <Key>
+      <PropertyRef Name="id_consulta" />
+      <PropertyRef Name="cod_cliente" />
+      <PropertyRef Name="cod_veterinario" />
+    </Key>
+    <Property Name="id_consulta" Type="int" Nullable="false" />
+    <Property Name="fec_consulta" Type="date" />
+    <Property Name="cod_mascota" Type="int" />
+    <Property Name="nom_mascota" Type="nvarchar" MaxLength="40" />
+    <Property Name="observaciones" Type="varchar" MaxLength="159" />
+    <Property Name="cod_cliente" Type="int" Nullable="false" />
+    <Property Name="nom_cliente" Type="nvarchar" MaxLength="30" />
+    <Property Name="ape_Cliente" Type="nvarchar" MaxLength="30" />
+    <Property Name="dni_cli" Type="int" />
+    <Property Name="tel_cliente" Type="nvarchar" MaxLength="30" />
+    <Property Name="departamento" Type="nvarchar" MaxLength="255" />
+    <Property Name="provincia" Type="nvarchar" MaxLength="255" />
+    <Property Name="distrito" Type="nvarchar" MaxLength="255" />
+    <Property Name="Total" Type="money" />
+    <Property Name="est_consulta" Type="int" />
+    <Property Name="Estado" Type="varchar" MaxLength="9" />
+    <Property Name="cod_veterinario" Type="int" Nullable="false" />
+    <Property Name="nom_veterinario" Type="nvarchar" MaxLength="30" />
+    <Property Name="ape_veterinario" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBVeterinaria.dbo.vw_VistaVeterinario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_VistaVeterinario">
+    <Key>
+      <PropertyRef Name="cod_veterinario" />
+    </Key>
+    <Property Name="cod_veterinario" Type="int" Nullable="false" />
+    <Property Name="nom_veterinario" Type="nvarchar" MaxLength="30" />
+    <Property Name="ape_veterinario" Type="nvarchar" MaxLength="30" />
+    <Property Name="Departamento" Type="nvarchar" MaxLength="255" />
+    <Property Name="Provincia" Type="nvarchar" MaxLength="255" />
+    <Property Name="dni_vet" Type="nvarchar" MaxLength="255" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="30" />
+    <Property Name="sueldo" Type="int" />
+    <Property Name="Estado" Type="varchar" MaxLength="8" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="80" />
+    <Property Name="tel_veterinario" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="Cliente_FK">
+    <End Role="Ubigeo" Type="Self.Ubigeo" Multiplicity="0..1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ubigeo">
+        <PropertyRef Name="id_ubigeo" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="id_Ubigeo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Consulta_FK">
+    <End Role="Veterinario" Type="Self.Veterinario" Multiplicity="0..1" />
+    <End Role="Consulta" Type="Self.Consulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Veterinario">
+        <PropertyRef Name="cod_veterinario" />
+      </Principal>
+      <Dependent Role="Consulta">
+        <PropertyRef Name="cod_veterinario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Consulta_FK2">
+    <End Role="Mascota" Type="Self.Mascota" Multiplicity="0..1" />
+    <End Role="Consulta" Type="Self.Consulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mascota">
+        <PropertyRef Name="cod_mascota" />
+      </Principal>
+      <Dependent Role="Consulta">
+        <PropertyRef Name="cod_mascota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETCONSULTA_FK">
+    <End Role="Consulta" Type="Self.Consulta" Multiplicity="1" />
+    <End Role="Det_Consulta" Type="Self.Det_Consulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Consulta">
+        <PropertyRef Name="id_consulta" />
+      </Principal>
+      <Dependent Role="Det_Consulta">
+        <PropertyRef Name="id_consulta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETCONSULTA_FK2">
+    <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="0..1" />
+    <End Role="Det_Consulta" Type="Self.Det_Consulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicamento">
+        <PropertyRef Name="cod_medicamento" />
+      </Principal>
+      <Dependent Role="Det_Consulta">
+        <PropertyRef Name="cod_medicamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Mascota_FK">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="Mascota" Type="Self.Mascota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cod_cliente" />
+      </Principal>
+      <Dependent Role="Mascota">
+        <PropertyRef Name="cod_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Mascota_FK2">
+    <End Role="Esp" Type="Self.Esp" Multiplicity="0..1" />
+    <End Role="Mascota" Type="Self.Mascota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Esp">
+        <PropertyRef Name="cod_esp" />
+      </Principal>
+      <Dependent Role="Mascota">
+        <PropertyRef Name="cod_esp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Veterinario_FK">
+    <End Role="Especialidad" Type="Self.Especialidad" Multiplicity="0..1" />
+    <End Role="Veterinario" Type="Self.Veterinario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Especialidad">
+        <PropertyRef Name="cod_especialidad" />
+      </Principal>
+      <Dependent Role="Veterinario">
+        <PropertyRef Name="cod_especialidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Veterinario_FK2">
+    <End Role="Ubigeo" Type="Self.Ubigeo" Multiplicity="0..1" />
+    <End Role="Veterinario" Type="Self.Veterinario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ubigeo">
+        <PropertyRef Name="id_ubigeo" />
+      </Principal>
+      <Dependent Role="Veterinario">
+        <PropertyRef Name="id_ubigeo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="usp_ActualizarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vcod" Type="int" Mode="In" />
+    <Parameter Name="vnom" Type="nvarchar" Mode="In" />
+    <Parameter Name="vape" Type="nvarchar" Mode="In" />
+    <Parameter Name="vdni" Type="int" Mode="In" />
+    <Parameter Name="vidubigeo" Type="nchar" Mode="In" />
+    <Parameter Name="vdireccion" Type="nvarchar" Mode="In" />
+    <Parameter Name="vtel_cli" Type="nvarchar" Mode="In" />
+    <Parameter Name="vest_cli" Type="int" Mode="In" />
+    <Parameter Name="vsexo" Type="char" Mode="In" />
+    <Parameter Name="vemail" Type="nvarchar" Mode="In" />
+    <Parameter Name="vnum_reg" Type="nchar" Mode="In" />
+    <Parameter Name="vusu_ult_mod" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_ActualizarMascota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vcod_mas" Type="int" Mode="In" />
+    <Parameter Name="vcod_esp" Type="int" Mode="In" />
+    <Parameter Name="vnom_mas" Type="nvarchar" Mode="In" />
+    <Parameter Name="vnom_cli" Type="nvarchar" Mode="In" />
+    <Parameter Name="vape_cli" Type="nvarchar" Mode="In" />
+    <Parameter Name="vcod_cli" Type="int" Mode="In" />
+    <Parameter Name="vfoto_mas" Type="image" Mode="In" />
+    <Parameter Name="vsexo_mas" Type="char" Mode="In" />
+    <Parameter Name="vcolor_mas" Type="nvarchar" Mode="In" />
+    <Parameter Name="vfec_mas" Type="date" Mode="In" />
+    <Parameter Name="vest_mascota" Type="int" Mode="In" />
+    <Parameter Name="vUsuUlt_Mod" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_ConsultarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vcod" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ConsultasXAño" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vaño3" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_EliminarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vcod" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_EliminarMascota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vcod_mas" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_InsertarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vnom" Type="nvarchar" Mode="In" />
+    <Parameter Name="vape" Type="nvarchar" Mode="In" />
+    <Parameter Name="vdni" Type="int" Mode="In" />
+    <Parameter Name="vidubigeo" Type="nchar" Mode="In" />
+    <Parameter Name="vdireccion" Type="nvarchar" Mode="In" />
+    <Parameter Name="vtel_cli" Type="nvarchar" Mode="In" />
+    <Parameter Name="vusu_reg" Type="varchar" Mode="In" />
+    <Parameter Name="vest_cli" Type="int" Mode="In" />
+    <Parameter Name="vsexo" Type="char" Mode="In" />
+    <Parameter Name="vemail" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_InsertarMascota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vnom_mas" Type="nvarchar" Mode="In" />
+    <Parameter Name="vnom_cli" Type="nvarchar" Mode="In" />
+    <Parameter Name="vape_cli" Type="nvarchar" Mode="In" />
+    <Parameter Name="vcod_cli" Type="int" Mode="In" />
+    <Parameter Name="vcod_esp" Type="int" Mode="In" />
+    <Parameter Name="vfoto_mas" Type="image" Mode="In" />
+    <Parameter Name="vsexo_mas" Type="char" Mode="In" />
+    <Parameter Name="vcolor_mas" Type="nvarchar" Mode="In" />
+    <Parameter Name="vfec_mas" Type="date" Mode="In" />
+    <Parameter Name="vest_mascota" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ListarClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_ListarConsultasMascotaFecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vcod_mascota" Type="int" Mode="In" />
+    <Parameter Name="vFechaInicio1" Type="date" Mode="In" />
+    <Parameter Name="vFechaFin1" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_ListarConsultasMascotaFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vcod_mascota" Type="int" Mode="In" />
+    <Parameter Name="vFechaInicio1" Type="date" Mode="In" />
+    <Parameter Name="vFechaFin1" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_ListarConsultasMascotaFechas2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vcod_mascota" Type="int" Mode="In" />
+    <Parameter Name="vFechaInicio1" Type="date" Mode="In" />
+    <Parameter Name="vFechaFin1" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_ListarConsultasVeterinarioFecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vcod_veterinario" Type="int" Mode="In" />
+    <Parameter Name="vEstado" Type="varchar" Mode="In" />
+    <Parameter Name="vFechaInicio" Type="date" Mode="In" />
+    <Parameter Name="vFechaFin" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_ListarConsultasVeterinarioFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vcod_veterinario" Type="int" Mode="In" />
+    <Parameter Name="vEstado" Type="varchar" Mode="In" />
+    <Parameter Name="vFechaInicio" Type="date" Mode="In" />
+    <Parameter Name="vFechaFin" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_ListarConsultasVeterinarioFechas2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vcod_veterinario" Type="int" Mode="In" />
+    <Parameter Name="vEstado" Type="varchar" Mode="In" />
+    <Parameter Name="vFechaInicio" Type="date" Mode="In" />
+    <Parameter Name="vFechaFin" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_ListarMascotasdeClientesFecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vCod_Cliente" Type="int" Mode="In" />
+    <Parameter Name="vEstado2" Type="varchar" Mode="In" />
+    <Parameter Name="vFechaInicio3" Type="date" Mode="In" />
+    <Parameter Name="vFechaFin3" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_ListarMascotasdeClientesFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vCod_Cliente" Type="int" Mode="In" />
+    <Parameter Name="vEstado2" Type="varchar" Mode="In" />
+    <Parameter Name="vFechaInicio3" Type="date" Mode="In" />
+    <Parameter Name="vFechaFin3" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_ListarMascotasdeClientesFechas2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vCod_Cliente" Type="int" Mode="In" />
+    <Parameter Name="vEstado2" Type="varchar" Mode="In" />
+    <Parameter Name="vFechaInicio3" Type="date" Mode="In" />
+    <Parameter Name="vFechaFin3" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_ListarMascotasPorEspecie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vcodEspecie" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ListarMascotasPorEspecie2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vcodEspecie" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ListarVeterinario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_ResumenConsultasXAño" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vaño3" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TopAtencionesClientesMascotasAño" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vaño" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TopAtencionesClientesMascotasAño2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vaño" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TopAtencionesMascotasAño" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vaño2" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TopAtencionesMascotasAño2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vaño2" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TopMedicinasXAño" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vaño4" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="DBVeterinariaModelStoreContainer">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Consulta" EntityType="Self.Consulta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Det_Consulta" EntityType="Self.Det_Consulta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Esp" EntityType="Self.Esp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Especialidad" EntityType="Self.Especialidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mascota" EntityType="Self.Mascota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medicamento" EntityType="Self.Medicamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ubigeo" EntityType="Self.Ubigeo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Veterinario" EntityType="Self.Veterinario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vw_VistaCliente" EntityType="Self.vw_VistaCliente" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_VistaCliente].[cod_cliente] AS [cod_cliente], 
+    [vw_VistaCliente].[dni_cli] AS [dni_cli], 
+    [vw_VistaCliente].[Cliente] AS [Cliente], 
+    [vw_VistaCliente].[dirección] AS [dirección], 
+    [vw_VistaCliente].[tel_cliente] AS [tel_cliente], 
+    [vw_VistaCliente].[est_cli] AS [est_cli], 
+    [vw_VistaCliente].[fec_registro] AS [fec_registro], 
+    [vw_VistaCliente].[Estado] AS [Estado], 
+    [vw_VistaCliente].[Sexo] AS [Sexo], 
+    [vw_VistaCliente].[departamento] AS [departamento], 
+    [vw_VistaCliente].[provincia] AS [provincia], 
+    [vw_VistaCliente].[distrito] AS [distrito]
+    FROM [dbo].[vw_VistaCliente] AS [vw_VistaCliente]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_VistaConsulta" EntityType="Self.vw_VistaConsulta" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_VistaConsulta].[id_consulta] AS [id_consulta], 
+    [vw_VistaConsulta].[fec_consulta] AS [fec_consulta], 
+    [vw_VistaConsulta].[cod_mascota] AS [cod_mascota], 
+    [vw_VistaConsulta].[nom_mascota] AS [nom_mascota], 
+    [vw_VistaConsulta].[observaciones] AS [observaciones], 
+    [vw_VistaConsulta].[cod_cliente] AS [cod_cliente], 
+    [vw_VistaConsulta].[nom_cliente] AS [nom_cliente], 
+    [vw_VistaConsulta].[ape_Cliente] AS [ape_Cliente], 
+    [vw_VistaConsulta].[dni_cli] AS [dni_cli], 
+    [vw_VistaConsulta].[tel_cliente] AS [tel_cliente], 
+    [vw_VistaConsulta].[departamento] AS [departamento], 
+    [vw_VistaConsulta].[provincia] AS [provincia], 
+    [vw_VistaConsulta].[distrito] AS [distrito], 
+    [vw_VistaConsulta].[Total] AS [Total], 
+    [vw_VistaConsulta].[est_consulta] AS [est_consulta], 
+    [vw_VistaConsulta].[Estado] AS [Estado], 
+    [vw_VistaConsulta].[cod_veterinario] AS [cod_veterinario], 
+    [vw_VistaConsulta].[nom_veterinario] AS [nom_veterinario], 
+    [vw_VistaConsulta].[ape_veterinario] AS [ape_veterinario]
+    FROM [dbo].[vw_VistaConsulta] AS [vw_VistaConsulta]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_VistaVeterinario" EntityType="Self.vw_VistaVeterinario" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_VistaVeterinario].[cod_veterinario] AS [cod_veterinario], 
+    [vw_VistaVeterinario].[nom_veterinario] AS [nom_veterinario], 
+    [vw_VistaVeterinario].[ape_veterinario] AS [ape_veterinario], 
+    [vw_VistaVeterinario].[Departamento] AS [Departamento], 
+    [vw_VistaVeterinario].[Provincia] AS [Provincia], 
+    [vw_VistaVeterinario].[dni_vet] AS [dni_vet], 
+    [vw_VistaVeterinario].[descripcion] AS [descripcion], 
+    [vw_VistaVeterinario].[sueldo] AS [sueldo], 
+    [vw_VistaVeterinario].[Estado] AS [Estado], 
+    [vw_VistaVeterinario].[direccion] AS [direccion], 
+    [vw_VistaVeterinario].[tel_veterinario] AS [tel_veterinario]
+    FROM [dbo].[vw_VistaVeterinario] AS [vw_VistaVeterinario]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="Cliente_FK" Association="Self.Cliente_FK">
+      <End Role="Ubigeo" EntitySet="Ubigeo" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="Consulta_FK" Association="Self.Consulta_FK">
+      <End Role="Veterinario" EntitySet="Veterinario" />
+      <End Role="Consulta" EntitySet="Consulta" />
+    </AssociationSet>
+    <AssociationSet Name="Consulta_FK2" Association="Self.Consulta_FK2">
+      <End Role="Mascota" EntitySet="Mascota" />
+      <End Role="Consulta" EntitySet="Consulta" />
+    </AssociationSet>
+    <AssociationSet Name="DETCONSULTA_FK" Association="Self.DETCONSULTA_FK">
+      <End Role="Consulta" EntitySet="Consulta" />
+      <End Role="Det_Consulta" EntitySet="Det_Consulta" />
+    </AssociationSet>
+    <AssociationSet Name="DETCONSULTA_FK2" Association="Self.DETCONSULTA_FK2">
+      <End Role="Medicamento" EntitySet="Medicamento" />
+      <End Role="Det_Consulta" EntitySet="Det_Consulta" />
+    </AssociationSet>
+    <AssociationSet Name="Mascota_FK" Association="Self.Mascota_FK">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Mascota" EntitySet="Mascota" />
+    </AssociationSet>
+    <AssociationSet Name="Mascota_FK2" Association="Self.Mascota_FK2">
+      <End Role="Esp" EntitySet="Esp" />
+      <End Role="Mascota" EntitySet="Mascota" />
+    </AssociationSet>
+    <AssociationSet Name="Veterinario_FK" Association="Self.Veterinario_FK">
+      <End Role="Especialidad" EntitySet="Especialidad" />
+      <End Role="Veterinario" EntitySet="Veterinario" />
+    </AssociationSet>
+    <AssociationSet Name="Veterinario_FK2" Association="Self.Veterinario_FK2">
+      <End Role="Ubigeo" EntitySet="Ubigeo" />
+      <End Role="Veterinario" EntitySet="Veterinario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

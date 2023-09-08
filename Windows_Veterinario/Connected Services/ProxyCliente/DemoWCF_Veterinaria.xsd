@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DemoWCF_Veterinaria" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DemoWCF_Veterinaria" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ClienteDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usu_Registro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usu_Ult_Mod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ape_cliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_cliente" type="xs:int" />
+      <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dni_cli" type="xs:int" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="est_cli" type="xs:short" />
+      <xs:element minOccurs="0" name="fec_registro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_Ubigeo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nom_cliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_reg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sexo_lit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tel_cliente" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClienteDC" nillable="true" type="tns:ClienteDC" />
+  <xs:complexType name="ClienteInsertar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Usu_Registro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ape_cliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dni_cli" type="xs:int" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="est_cli" type="xs:short" />
+      <xs:element minOccurs="0" name="id_Ubigeo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nom_cliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tel_cliente" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClienteInsertar" nillable="true" type="tns:ClienteInsertar" />
+  <xs:complexType name="ClienteActualizar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Usu_Ult_Mod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ape_cliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_cliente" type="xs:int" />
+      <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dni_cli" type="xs:int" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="est_cli" type="xs:short" />
+      <xs:element minOccurs="0" name="id_Ubigeo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nom_cliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="num_reg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tel_cliente" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClienteActualizar" nillable="true" type="tns:ClienteActualizar" />
+  <xs:complexType name="ArrayOfClienteDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClienteDC" nillable="true" type="tns:ClienteDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClienteDC" nillable="true" type="tns:ArrayOfClienteDC" />
+</xs:schema>

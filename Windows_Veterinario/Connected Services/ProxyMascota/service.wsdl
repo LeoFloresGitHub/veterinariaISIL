@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServicioMascota" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DemoWCF_Veterinaria" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioMascota_ConsultarMascota_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarMascota" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMascota_ConsultarMascota_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarMascotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMascota_InsertarMascota_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarMascota" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMascota_InsertarMascota_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarMascotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMascota_ActualizarMascota_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarMascota" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMascota_ActualizarMascota_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarMascotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMascota_EliminarMascota_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarMascota" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMascota_EliminarMascota_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarMascotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMascota_ListarMascota_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarMascota" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMascota_ListarMascota_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarMascotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMascota_ListarEspecie_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEspecie" />
+  </wsdl:message>
+  <wsdl:message name="IServicioMascota_ListarEspecie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEspecieResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioMascota">
+    <wsdl:operation name="ConsultarMascota">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioMascota/ConsultarMascota" message="tns:IServicioMascota_ConsultarMascota_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioMascota/ConsultarMascotaResponse" message="tns:IServicioMascota_ConsultarMascota_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarMascota">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioMascota/InsertarMascota" message="tns:IServicioMascota_InsertarMascota_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioMascota/InsertarMascotaResponse" message="tns:IServicioMascota_InsertarMascota_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarMascota">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioMascota/ActualizarMascota" message="tns:IServicioMascota_ActualizarMascota_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioMascota/ActualizarMascotaResponse" message="tns:IServicioMascota_ActualizarMascota_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarMascota">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioMascota/EliminarMascota" message="tns:IServicioMascota_EliminarMascota_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioMascota/EliminarMascotaResponse" message="tns:IServicioMascota_EliminarMascota_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarMascota">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioMascota/ListarMascota" message="tns:IServicioMascota_ListarMascota_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioMascota/ListarMascotaResponse" message="tns:IServicioMascota_ListarMascota_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEspecie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioMascota/ListarEspecie" message="tns:IServicioMascota_ListarEspecie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioMascota/ListarEspecieResponse" message="tns:IServicioMascota_ListarEspecie_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioMascota" type="tns:IServicioMascota">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarMascota">
+      <soap:operation soapAction="http://tempuri.org/IServicioMascota/ConsultarMascota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarMascota">
+      <soap:operation soapAction="http://tempuri.org/IServicioMascota/InsertarMascota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarMascota">
+      <soap:operation soapAction="http://tempuri.org/IServicioMascota/ActualizarMascota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarMascota">
+      <soap:operation soapAction="http://tempuri.org/IServicioMascota/EliminarMascota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarMascota">
+      <soap:operation soapAction="http://tempuri.org/IServicioMascota/ListarMascota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEspecie">
+      <soap:operation soapAction="http://tempuri.org/IServicioMascota/ListarEspecie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioMascota">
+    <wsdl:port name="BasicHttpBinding_IServicioMascota" binding="tns:BasicHttpBinding_IServicioMascota">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/DemoWCF_Veterinaria/ServicioMascota/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

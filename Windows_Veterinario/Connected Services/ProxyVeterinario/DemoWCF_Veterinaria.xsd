@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DemoWCF_Veterinaria" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DemoWCF_Veterinaria" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="VeterinarioDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usu_Registro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usu_Ult_Mod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ape_veterinario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cod_especialidad" type="xs:short" />
+      <xs:element minOccurs="0" name="cod_veterinario" type="xs:int" />
+      <xs:element minOccurs="0" name="des_especialidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dni_vet" type="xs:int" />
+      <xs:element minOccurs="0" name="est_vet" type="xs:short" />
+      <xs:element minOccurs="0" name="fec_Ult_Mod" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="foto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nom_veterinario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sueldo" type="xs:int" />
+      <xs:element minOccurs="0" name="tel_veterinario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VeterinarioDC" nillable="true" type="tns:VeterinarioDC" />
+  <xs:complexType name="ArrayOfVeterinarioDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VeterinarioDC" nillable="true" type="tns:VeterinarioDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVeterinarioDC" nillable="true" type="tns:ArrayOfVeterinarioDC" />
+</xs:schema>

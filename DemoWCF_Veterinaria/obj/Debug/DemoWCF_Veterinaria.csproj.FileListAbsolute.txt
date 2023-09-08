@@ -1,0 +1,12 @@
+E:\CICLO 4\Desarrollo de Aplicaciones II\Proyectos\DemoWCF_Veterinaria\DemoWCF_Veterinaria\bin\Debug\DemoWCF_Veterinaria.dll.config
+E:\CICLO 4\Desarrollo de Aplicaciones II\Proyectos\DemoWCF_Veterinaria\DemoWCF_Veterinaria\bin\Debug\DemoWCF_Veterinaria.dll
+E:\CICLO 4\Desarrollo de Aplicaciones II\Proyectos\DemoWCF_Veterinaria\DemoWCF_Veterinaria\bin\Debug\DemoWCF_Veterinaria.pdb
+E:\CICLO 4\Desarrollo de Aplicaciones II\Proyectos\DemoWCF_Veterinaria\DemoWCF_Veterinaria\bin\Debug\EntityFramework.dll
+E:\CICLO 4\Desarrollo de Aplicaciones II\Proyectos\DemoWCF_Veterinaria\DemoWCF_Veterinaria\bin\Debug\EntityFramework.SqlServer.dll
+E:\CICLO 4\Desarrollo de Aplicaciones II\Proyectos\DemoWCF_Veterinaria\DemoWCF_Veterinaria\bin\Debug\EntityFramework.xml
+E:\CICLO 4\Desarrollo de Aplicaciones II\Proyectos\DemoWCF_Veterinaria\DemoWCF_Veterinaria\bin\Debug\EntityFramework.SqlServer.xml
+E:\CICLO 4\Desarrollo de Aplicaciones II\Proyectos\DemoWCF_Veterinaria\DemoWCF_Veterinaria\obj\Debug\DemoWCF_Veterinaria.csproj.AssemblyReference.cache
+E:\CICLO 4\Desarrollo de Aplicaciones II\Proyectos\DemoWCF_Veterinaria\DemoWCF_Veterinaria\obj\Debug\DemoWCF_Veterinaria.csproj.CoreCompileInputs.cache
+E:\CICLO 4\Desarrollo de Aplicaciones II\Proyectos\DemoWCF_Veterinaria\DemoWCF_Veterinaria\obj\Debug\DemoWCF_Veterinaria.csproj.CopyComplete
+E:\CICLO 4\Desarrollo de Aplicaciones II\Proyectos\DemoWCF_Veterinaria\DemoWCF_Veterinaria\obj\Debug\DemoWCF_Veterinaria.dll
+E:\CICLO 4\Desarrollo de Aplicaciones II\Proyectos\DemoWCF_Veterinaria\DemoWCF_Veterinaria\obj\Debug\DemoWCF_Veterinaria.pdb

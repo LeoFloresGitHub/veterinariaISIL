@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBVeterinariaModelStoreContainer" CdmEntityContainer="DBVeterinariaEntities">
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="DBVeterinariaModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+          <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+          <ScalarProperty Name="ape_cliente" ColumnName="ape_cliente" />
+          <ScalarProperty Name="dni_cli" ColumnName="dni_cli" />
+          <ScalarProperty Name="id_Ubigeo" ColumnName="id_Ubigeo" />
+          <ScalarProperty Name="dirección" ColumnName="dirección" />
+          <ScalarProperty Name="tel_cliente" ColumnName="tel_cliente" />
+          <ScalarProperty Name="Usu_Registro" ColumnName="Usu_Registro" />
+          <ScalarProperty Name="est_cli" ColumnName="est_cli" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="fec_registro" ColumnName="fec_registro" />
+          <ScalarProperty Name="num_registro" ColumnName="num_registro" />
+          <ScalarProperty Name="fec_Ult_Mod" ColumnName="fec_Ult_Mod" />
+          <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consulta">
+      <EntityTypeMapping TypeName="DBVeterinariaModel.Consulta">
+        <MappingFragment StoreEntitySet="Consulta">
+          <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+          <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+          <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+          <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+          <ScalarProperty Name="est_consulta" ColumnName="est_consulta" />
+          <ScalarProperty Name="prec_consulta" ColumnName="prec_consulta" />
+          <ScalarProperty Name="igv" ColumnName="igv" />
+          <ScalarProperty Name="diagnostico" ColumnName="diagnostico" />
+          <ScalarProperty Name="fec_proxconsulta" ColumnName="fec_proxconsulta" />
+          <ScalarProperty Name="fec_Ult_Mod" ColumnName="fec_Ult_Mod" />
+          <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Det_Consulta">
+      <EntityTypeMapping TypeName="DBVeterinariaModel.Det_Consulta">
+        <MappingFragment StoreEntitySet="Det_Consulta">
+          <ScalarProperty Name="id_Det_consulta" ColumnName="id_Det_consulta" />
+          <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+          <ScalarProperty Name="cod_medicamento" ColumnName="cod_medicamento" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="tratamiento" ColumnName="tratamiento" />
+          <ScalarProperty Name="fec_registro" ColumnName="fec_registro" />
+          <ScalarProperty Name="fec_Ult_Mod" ColumnName="fec_Ult_Mod" />
+          <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esp">
+      <EntityTypeMapping TypeName="DBVeterinariaModel.Esp">
+        <MappingFragment StoreEntitySet="Esp">
+          <ScalarProperty Name="cod_esp" ColumnName="cod_esp" />
+          <ScalarProperty Name="des_esp" ColumnName="des_esp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Especialidad">
+      <EntityTypeMapping TypeName="DBVeterinariaModel.Especialidad">
+        <MappingFragment StoreEntitySet="Especialidad">
+          <ScalarProperty Name="cod_especialidad" ColumnName="cod_especialidad" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mascota">
+      <EntityTypeMapping TypeName="DBVeterinariaModel.Mascota">
+        <MappingFragment StoreEntitySet="Mascota">
+          <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+          <ScalarProperty Name="cod_esp" ColumnName="cod_esp" />
+          <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+          <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+          <ScalarProperty Name="ape_cliente" ColumnName="ape_cliente" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="fec_nacimiento" ColumnName="fec_nacimiento" />
+          <ScalarProperty Name="est_mascota" ColumnName="est_mascota" />
+          <ScalarProperty Name="fec_Ult_Mod" ColumnName="fec_Ult_Mod" />
+          <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medicamento">
+      <EntityTypeMapping TypeName="DBVeterinariaModel.Medicamento">
+        <MappingFragment StoreEntitySet="Medicamento">
+          <ScalarProperty Name="cod_medicamento" ColumnName="cod_medicamento" />
+          <ScalarProperty Name="des_medicamento" ColumnName="des_medicamento" />
+          <ScalarProperty Name="cod_tipomedicamento" ColumnName="cod_tipomedicamento" />
+          <ScalarProperty Name="prec_med" ColumnName="prec_med" />
+          <ScalarProperty Name="igv" ColumnName="igv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ubigeo">
+      <EntityTypeMapping TypeName="DBVeterinariaModel.Ubigeo">
+        <MappingFragment StoreEntitySet="Ubigeo">
+          <ScalarProperty Name="id_ubigeo" ColumnName="id_ubigeo" />
+          <ScalarProperty Name="IdDepa" ColumnName="IdDepa" />
+          <ScalarProperty Name="IdProv" ColumnName="IdProv" />
+          <ScalarProperty Name="IdDist" ColumnName="IdDist" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="DBVeterinariaModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Login_Usuario" ColumnName="Login_Usuario" />
+          <ScalarProperty Name="pass_Usuario" ColumnName="pass_Usuario" />
+          <ScalarProperty Name="niv_Usuario" ColumnName="niv_Usuario" />
+          <ScalarProperty Name="est_Usuario" ColumnName="est_Usuario" />
+          <ScalarProperty Name="fec_Usuario" ColumnName="fec_Usuario" />
+          <ScalarProperty Name="Usu_Registro" ColumnName="Usu_Registro" />
+          <ScalarProperty Name="fec_Ult_Mod" ColumnName="fec_Ult_Mod" />
+          <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Veterinario">
+      <EntityTypeMapping TypeName="DBVeterinariaModel.Veterinario">
+        <MappingFragment StoreEntitySet="Veterinario">
+          <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+          <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+          <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+          <ScalarProperty Name="Usu_Registro" ColumnName="Usu_Registro" />
+          <ScalarProperty Name="sueldo" ColumnName="sueldo" />
+          <ScalarProperty Name="dni_vet" ColumnName="dni_vet" />
+          <ScalarProperty Name="foto_vet" ColumnName="foto_vet" />
+          <ScalarProperty Name="est_vet" ColumnName="est_vet" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="tel_veterinario" ColumnName="tel_veterinario" />
+          <ScalarProperty Name="cod_especialidad" ColumnName="cod_especialidad" />
+          <ScalarProperty Name="id_ubigeo" ColumnName="id_ubigeo" />
+          <ScalarProperty Name="fec_Ult_Mod" ColumnName="fec_Ult_Mod" />
+          <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_ConsultarCliente" FunctionName="DBVeterinariaModel.Store.usp_ConsultarCliente" />
+    <EntitySetMapping Name="vw_VistaConsulta">
+      <EntityTypeMapping TypeName="DBVeterinariaModel.vw_VistaConsulta">
+        <MappingFragment StoreEntitySet="vw_VistaConsulta">
+          <ScalarProperty Name="ape_Cliente" ColumnName="ape_Cliente" />
+          <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+          <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+          <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+          <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="est_consulta" ColumnName="est_consulta" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="distrito" ColumnName="distrito" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="tel_cliente" ColumnName="tel_cliente" />
+          <ScalarProperty Name="dni_cli" ColumnName="dni_cli" />
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+          <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+          <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+          <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_VistaCliente">
+      <EntityTypeMapping TypeName="DBVeterinariaModel.vw_VistaCliente">
+        <MappingFragment StoreEntitySet="vw_VistaCliente">
+          <ScalarProperty Name="distrito" ColumnName="distrito" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="fec_registro" ColumnName="fec_registro" />
+          <ScalarProperty Name="est_cli" ColumnName="est_cli" />
+          <ScalarProperty Name="tel_cliente" ColumnName="tel_cliente" />
+          <ScalarProperty Name="dirección" ColumnName="dirección" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="dni_cli" ColumnName="dni_cli" />
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_ActualizarCliente" FunctionName="DBVeterinariaModel.Store.usp_ActualizarCliente" />
+    <FunctionImportMapping FunctionImportName="usp_EliminarCliente" FunctionName="DBVeterinariaModel.Store.usp_EliminarCliente" />
+    <FunctionImportMapping FunctionImportName="usp_InsertarCliente" FunctionName="DBVeterinariaModel.Store.usp_InsertarCliente" />
+    <FunctionImportMapping FunctionImportName="usp_ListarClientes" FunctionName="DBVeterinariaModel.Store.usp_ListarClientes" />
+    <FunctionImportMapping FunctionImportName="usp_ActualizarMascota" FunctionName="DBVeterinariaModel.Store.usp_ActualizarMascota" />
+    <FunctionImportMapping FunctionImportName="usp_EliminarMascota" FunctionName="DBVeterinariaModel.Store.usp_EliminarMascota" />
+    <FunctionImportMapping FunctionImportName="usp_InsertarMascota" FunctionName="DBVeterinariaModel.Store.usp_InsertarMascota" />
+    <FunctionImportMapping FunctionImportName="usp_ListarConsultasMascotaFechas" FunctionName="DBVeterinariaModel.Store.usp_ListarConsultasMascotaFechas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarConsultasMascotaFechas_Result">
+          <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+          <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarConsultasVeterinarioFechas" FunctionName="DBVeterinariaModel.Store.usp_ListarConsultasVeterinarioFechas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarConsultasVeterinarioFechas_Result">
+          <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+          <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarMascotasdeClientesFechas" FunctionName="DBVeterinariaModel.Store.usp_ListarMascotasdeClientesFechas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarMascotasdeClientesFechas_Result">
+          <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+          <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+          <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+          <ScalarProperty Name="ape_cliente" ColumnName="ape_cliente" />
+          <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+          <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarMascotasPorEspecie" FunctionName="DBVeterinariaModel.Store.usp_ListarMascotasPorEspecie">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarMascotasPorEspecie_Result">
+          <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+          <ScalarProperty Name="cod_esp" ColumnName="cod_esp" />
+          <ScalarProperty Name="des_esp" ColumnName="des_esp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ConsultasXAño" FunctionName="DBVeterinariaModel.Store.usp_ConsultasXAño">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ConsultasXAño_Result">
+          <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+          <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+          <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+          <ScalarProperty Name="dni_cli" ColumnName="dni_cli" />
+          <ScalarProperty Name="tel_cliente" ColumnName="tel_cliente" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="distrito" ColumnName="distrito" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="est_consulta" ColumnName="est_consulta" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+          <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+          <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+          <ScalarProperty Name="cod_mascota1" ColumnName="cod_mascota1" />
+          <ScalarProperty Name="cod_esp" ColumnName="cod_esp" />
+          <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+          <ScalarProperty Name="cod_cliente1" ColumnName="cod_cliente1" />
+          <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+          <ScalarProperty Name="ape_cliente" ColumnName="ape_cliente" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="fec_nacimiento" ColumnName="fec_nacimiento" />
+          <ScalarProperty Name="est_mascota" ColumnName="est_mascota" />
+          <ScalarProperty Name="fec_Ult_Mod" ColumnName="fec_Ult_Mod" />
+          <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_TopAtencionesClientesMascotasAño" FunctionName="DBVeterinariaModel.Store.usp_TopAtencionesClientesMascotasAño">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_TopAtencionesClientesMascotasAño_Result">
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+          <ScalarProperty Name="Consultas_Totales" ColumnName="Consultas Totales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_TopAtencionesMascotasAño" FunctionName="DBVeterinariaModel.Store.usp_TopAtencionesMascotasAño">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_TopAtencionesMascotasAño_Result">
+          <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+          <ScalarProperty Name="Consultas_Totales" ColumnName="Consultas Totales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_TopMedicinasXAño" FunctionName="DBVeterinariaModel.Store.usp_TopMedicinasXAño">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_TopMedicinasXAño_Result">
+          <ScalarProperty Name="cod_medicamento" ColumnName="cod_medicamento" />
+          <ScalarProperty Name="des_medicamento" ColumnName="des_medicamento" />
+          <ScalarProperty Name="Cantidad_recetadas" ColumnName="Cantidad recetadas" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ResumenConsultasXAño" FunctionName="DBVeterinariaModel.Store.usp_ResumenConsultasXAño">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ResumenConsultasXAño_Result">
+          <ScalarProperty Name="Consultas_Totales" ColumnName="Consultas Totales" />
+          <ScalarProperty Name="Ingresos_Generados" ColumnName="Ingresos Generados" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarConsultasMascotaFechas2" FunctionName="DBVeterinariaModel.Store.usp_ListarConsultasMascotaFechas2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarConsultasMascotaFechas2_Result">
+          <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+          <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+          <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+          <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+          <ScalarProperty Name="ape_Cliente" ColumnName="ape_Cliente" />
+          <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+          <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+          <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+          <ScalarProperty Name="est_consulta" ColumnName="est_consulta" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarConsultasMascotaFecha" FunctionName="DBVeterinariaModel.Store.usp_ListarConsultasMascotaFecha">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarConsultasMascotaFecha_Result">
+          <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+          <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+          <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+          <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+          <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+          <ScalarProperty Name="ape_Cliente" ColumnName="ape_Cliente" />
+          <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+          <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+          <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+          <ScalarProperty Name="est_consulta" ColumnName="est_consulta" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarConsultasVeterinarioFecha" FunctionName="DBVeterinariaModel.Store.usp_ListarConsultasVeterinarioFecha">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarConsultasVeterinarioFecha_Result">
+          <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+          <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+          <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+          <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+          <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarConsultasVeterinarioFechas2" FunctionName="DBVeterinariaModel.Store.usp_ListarConsultasVeterinarioFechas2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarConsultasVeterinarioFechas2_Result">
+          <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+          <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+          <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+          <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+          <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+          <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarMascotasPorEspecie2" FunctionName="DBVeterinariaModel.Store.usp_ListarMascotasPorEspecie2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarMascotasPorEspecie2_Result">
+          <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+          <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+          <ScalarProperty Name="cod_esp" ColumnName="cod_esp" />
+          <ScalarProperty Name="des_esp" ColumnName="des_esp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarMascotasdeClientesFecha" FunctionName="DBVeterinariaModel.Store.usp_ListarMascotasdeClientesFecha">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarMascotasdeClientesFecha_Result">
+          <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+          <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+          <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+          <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+          <ScalarProperty Name="ape_cliente" ColumnName="ape_cliente" />
+          <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+          <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="cod_veterinario1" ColumnName="cod_veterinario1" />
+          <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+          <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+          <ScalarProperty Name="est_consulta" ColumnName="est_consulta" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarMascotasdeClientesFechas2" FunctionName="DBVeterinariaModel.Store.usp_ListarMascotasdeClientesFechas2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarMascotasdeClientesFechas2_Result">
+          <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+          <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+          <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+          <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+          <ScalarProperty Name="ape_cliente" ColumnName="ape_cliente" />
+          <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+          <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+          <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+          <ScalarProperty Name="est_consulta" ColumnName="est_consulta" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_TopAtencionesClientesMascotasAño2" FunctionName="DBVeterinariaModel.Store.usp_TopAtencionesClientesMascotasAño2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_TopAtencionesClientesMascotasAño2_Result">
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+          <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+          <ScalarProperty Name="ape_Cliente" ColumnName="ape_Cliente" />
+          <ScalarProperty Name="Consultas_Totales" ColumnName="Consultas Totales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_TopAtencionesMascotasAño2" FunctionName="DBVeterinariaModel.Store.usp_TopAtencionesMascotasAño2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_TopAtencionesMascotasAño2_Result">
+          <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+          <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+          <ScalarProperty Name="Consultas_Totales" ColumnName="Consultas Totales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="vw_VistaVeterinario">
+      <EntityTypeMapping TypeName="DBVeterinariaModel.vw_VistaVeterinario">
+        <MappingFragment StoreEntitySet="vw_VistaVeterinario">
+          <ScalarProperty Name="tel_veterinario" ColumnName="tel_veterinario" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="sueldo" ColumnName="sueldo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="dni_vet" ColumnName="dni_vet" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+          <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+          <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarVeterinario" FunctionName="DBVeterinariaModel.Store.usp_ListarVeterinario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarVeterinario_Result">
+          <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+          <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+          <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="dni_vet" ColumnName="dni_vet" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="sueldo" ColumnName="sueldo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="tel_veterinario" ColumnName="tel_veterinario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

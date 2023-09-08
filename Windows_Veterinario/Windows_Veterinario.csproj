@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6D80AF9-4787-4D27-894E-46967EA900CC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Windows_Veterinario</RootNamespace>
+    <AssemblyName>Windows_Veterinario</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastMember, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.5.0\lib\net461\FastMember.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActualizarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualizarCliente.Designer.cs">
+      <DependentUpon>ActualizarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarMascota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualizarMascota.Designer.cs">
+      <DependentUpon>ActualizarMascota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteVeterinaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteVeterinaria.Designer.cs">
+      <DependentUpon>ClienteVeterinaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProxyCliente\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProxyConsulta\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProxyEstadistica\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProxyMascota\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProxyVeterinario\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultasClienteFechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultasClienteFechas.Designer.cs">
+      <DependentUpon>ConsultasClienteFechas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultasMascotaFechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultasMascotaFechas.Designer.cs">
+      <DependentUpon>ConsultasMascotaFechas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultasTotalesXAño.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultasTotalesXAño.Designer.cs">
+      <DependentUpon>ConsultasTotalesXAño.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultasVeterinarioFechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultasVeterinarioFechas.Designer.cs">
+      <DependentUpon>ConsultasVeterinarioFechas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaVeterinaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaVeterinaria.Designer.cs">
+      <DependentUpon>ConsultaVeterinaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EstadisticaVeterinaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstadisticaVeterinaria.Designer.cs">
+      <DependentUpon>EstadisticaVeterinaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertarCliente.Designer.cs">
+      <DependentUpon>InsertarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarMascota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertarMascota.Designer.cs">
+      <DependentUpon>InsertarMascota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MascotasPorEspecie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MascotasPorEspecie.Designer.cs">
+      <DependentUpon>MascotasPorEspecie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MascotaVeterinaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MascotaVeterinaria.Designer.cs">
+      <DependentUpon>MascotaVeterinaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TopAtencionesClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopAtencionesClientes.Designer.cs">
+      <DependentUpon>TopAtencionesClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TopAtencionesMascotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopAtencionesMascotas.Designer.cs">
+      <DependentUpon>TopAtencionesMascotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TopMedicinas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopMedicinas.Designer.cs">
+      <DependentUpon>TopMedicinas.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ActualizarCliente.resx">
+      <DependentUpon>ActualizarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActualizarMascota.resx">
+      <DependentUpon>ActualizarMascota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteVeterinaria.resx">
+      <DependentUpon>ClienteVeterinaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultasClienteFechas.resx">
+      <DependentUpon>ConsultasClienteFechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultasMascotaFechas.resx">
+      <DependentUpon>ConsultasMascotaFechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultasTotalesXAño.resx">
+      <DependentUpon>ConsultasTotalesXAño.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultasVeterinarioFechas.resx">
+      <DependentUpon>ConsultasVeterinarioFechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaVeterinaria.resx">
+      <DependentUpon>ConsultaVeterinaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstadisticaVeterinaria.resx">
+      <DependentUpon>EstadisticaVeterinaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertarCliente.resx">
+      <DependentUpon>InsertarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertarMascota.resx">
+      <DependentUpon>InsertarMascota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MascotasPorEspecie.resx">
+      <DependentUpon>MascotasPorEspecie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MascotaVeterinaria.resx">
+      <DependentUpon>MascotaVeterinaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="TopAtencionesClientes.resx">
+      <DependentUpon>TopAtencionesClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopAtencionesMascotas.resx">
+      <DependentUpon>TopAtencionesMascotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopMedicinas.resx">
+      <DependentUpon>TopMedicinas.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Connected Services\ProxyCliente\DemoWCF_Veterinaria.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyCliente\service.wsdl" />
+    <None Include="Connected Services\ProxyCliente\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyCliente\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyCliente\Windows_Veterinario.ProxyCliente.ClienteDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyConsulta\DemoWCF_Veterinaria.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyConsulta\service.wsdl" />
+    <None Include="Connected Services\ProxyConsulta\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyConsulta\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyConsulta\Windows_Veterinario.ProxyConsulta.ConsultaDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyConsulta\Windows_Veterinario.ProxyConsulta.ConsultaDCEsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyConsulta\Windows_Veterinario.ProxyConsulta.ConsultaDCVet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyEstadistica\DemoWCF_Veterinaria.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyEstadistica\service.wsdl" />
+    <None Include="Connected Services\ProxyEstadistica\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyEstadistica\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyEstadistica\Windows_Veterinario.ProxyEstadistica.ClienteEstadistica.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyEstadistica\Windows_Veterinario.ProxyEstadistica.ConsultasEstadistica.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyEstadistica\Windows_Veterinario.ProxyEstadistica.MascotasEstadistica.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyEstadistica\Windows_Veterinario.ProxyEstadistica.MedicinaEstadistica.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyMascota\DemoWCF_Veterinaria.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyMascota\service.wsdl" />
+    <None Include="Connected Services\ProxyMascota\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyMascota\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyMascota\Windows_Veterinario.ProxyMascota.EspecieDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyMascota\Windows_Veterinario.ProxyMascota.MascotaDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyVeterinario\DemoWCF_Veterinaria.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyVeterinario\service.wsdl" />
+    <None Include="Connected Services\ProxyVeterinario\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyVeterinario\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyVeterinario\Windows_Veterinario.ProxyVeterinario.VeterinarioDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ProxyCliente\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyConsulta\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyEstadistica\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyMascota\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyVeterinario\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyCliente\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyCliente\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyCliente\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyConsulta\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyConsulta\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyConsulta\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyEstadistica\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyEstadistica\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyEstadistica\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyMascota\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyMascota\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyMascota\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyVeterinario\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyVeterinario\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyVeterinario\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServicioConsulta" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DemoWCF_Veterinaria" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioConsulta_ListarConsultasMascotaFechas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarConsultasMascotaFechas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioConsulta_ListarConsultasMascotaFechas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarConsultasMascotaFechasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioConsulta_ListarConsultasVeterinarioFechas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarConsultasVeterinarioFechas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioConsulta_ListarConsultasVeterinarioFechas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarConsultasVeterinarioFechasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioConsulta_ListarMascotasPorEspecie_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarMascotasPorEspecie" />
+  </wsdl:message>
+  <wsdl:message name="IServicioConsulta_ListarMascotasPorEspecie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarMascotasPorEspecieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioConsulta_ListarConsultasClientesFechas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarConsultasClientesFechas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioConsulta_ListarConsultasClientesFechas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarConsultasClientesFechasResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioConsulta">
+    <wsdl:operation name="ListarConsultasMascotaFechas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioConsulta/ListarConsultasMascotaFechas" message="tns:IServicioConsulta_ListarConsultasMascotaFechas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioConsulta/ListarConsultasMascotaFechasResponse" message="tns:IServicioConsulta_ListarConsultasMascotaFechas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarConsultasVeterinarioFechas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioConsulta/ListarConsultasVeterinarioFechas" message="tns:IServicioConsulta_ListarConsultasVeterinarioFechas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioConsulta/ListarConsultasVeterinarioFechasResponse" message="tns:IServicioConsulta_ListarConsultasVeterinarioFechas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarMascotasPorEspecie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioConsulta/ListarMascotasPorEspecie" message="tns:IServicioConsulta_ListarMascotasPorEspecie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioConsulta/ListarMascotasPorEspecieResponse" message="tns:IServicioConsulta_ListarMascotasPorEspecie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarConsultasClientesFechas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioConsulta/ListarConsultasClientesFechas" message="tns:IServicioConsulta_ListarConsultasClientesFechas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioConsulta/ListarConsultasClientesFechasResponse" message="tns:IServicioConsulta_ListarConsultasClientesFechas_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioConsulta" type="tns:IServicioConsulta">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarConsultasMascotaFechas">
+      <soap:operation soapAction="http://tempuri.org/IServicioConsulta/ListarConsultasMascotaFechas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarConsultasVeterinarioFechas">
+      <soap:operation soapAction="http://tempuri.org/IServicioConsulta/ListarConsultasVeterinarioFechas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarMascotasPorEspecie">
+      <soap:operation soapAction="http://tempuri.org/IServicioConsulta/ListarMascotasPorEspecie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarConsultasClientesFechas">
+      <soap:operation soapAction="http://tempuri.org/IServicioConsulta/ListarConsultasClientesFechas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioConsulta">
+    <wsdl:port name="BasicHttpBinding_IServicioConsulta" binding="tns:BasicHttpBinding_IServicioConsulta">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/DemoWCF_Veterinaria/ServicioConsulta/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

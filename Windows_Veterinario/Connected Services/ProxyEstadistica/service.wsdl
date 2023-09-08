@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServicioEstadistica" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DemoWCF_Veterinaria" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioEstadistica_TopAtencionesClientesMascotasXAño_InputMessage">
+    <wsdl:part name="parameters" element="tns:TopAtencionesClientesMascotasXAño" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEstadistica_TopAtencionesClientesMascotasXAño_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TopAtencionesClientesMascotasXAñoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEstadistica_TopAtencionesMascotasXAño_InputMessage">
+    <wsdl:part name="parameters" element="tns:TopAtencionesMascotasXAño" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEstadistica_TopAtencionesMascotasXAño_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TopAtencionesMascotasXAñoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEstadistica_TopMedicinasXAño_InputMessage">
+    <wsdl:part name="parameters" element="tns:TopMedicinasXAño" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEstadistica_TopMedicinasXAño_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TopMedicinasXAñoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEstadistica_ConsultasXAño_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultasXAño" />
+  </wsdl:message>
+  <wsdl:message name="IServicioEstadistica_ConsultasXAño_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultasXAñoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioEstadistica">
+    <wsdl:operation name="TopAtencionesClientesMascotasXAño">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioEstadistica/TopAtencionesClientesMascotasXAño" message="tns:IServicioEstadistica_TopAtencionesClientesMascotasXAño_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioEstadistica/TopAtencionesClientesMascotasXAñoResponse" message="tns:IServicioEstadistica_TopAtencionesClientesMascotasXAño_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TopAtencionesMascotasXAño">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioEstadistica/TopAtencionesMascotasXAño" message="tns:IServicioEstadistica_TopAtencionesMascotasXAño_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioEstadistica/TopAtencionesMascotasXAñoResponse" message="tns:IServicioEstadistica_TopAtencionesMascotasXAño_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TopMedicinasXAño">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioEstadistica/TopMedicinasXAño" message="tns:IServicioEstadistica_TopMedicinasXAño_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioEstadistica/TopMedicinasXAñoResponse" message="tns:IServicioEstadistica_TopMedicinasXAño_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultasXAño">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioEstadistica/ConsultasXAño" message="tns:IServicioEstadistica_ConsultasXAño_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioEstadistica/ConsultasXAñoResponse" message="tns:IServicioEstadistica_ConsultasXAño_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioEstadistica" type="tns:IServicioEstadistica">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TopAtencionesClientesMascotasXAño">
+      <soap:operation soapAction="http://tempuri.org/IServicioEstadistica/TopAtencionesClientesMascotasXAño" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TopAtencionesMascotasXAño">
+      <soap:operation soapAction="http://tempuri.org/IServicioEstadistica/TopAtencionesMascotasXAño" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TopMedicinasXAño">
+      <soap:operation soapAction="http://tempuri.org/IServicioEstadistica/TopMedicinasXAño" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultasXAño">
+      <soap:operation soapAction="http://tempuri.org/IServicioEstadistica/ConsultasXAño" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioEstadistica">
+    <wsdl:port name="BasicHttpBinding_IServicioEstadistica" binding="tns:BasicHttpBinding_IServicioEstadistica">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/DemoWCF_Veterinaria/ServicioEstadistica/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

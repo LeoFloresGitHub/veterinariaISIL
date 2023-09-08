@@ -1,0 +1,1749 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBVeterinariaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="cod_cliente" />
+          </Key>
+          <Property Name="cod_cliente" Type="int" Nullable="false" />
+          <Property Name="nom_cliente" Type="nvarchar" MaxLength="30" />
+          <Property Name="ape_cliente" Type="nvarchar" MaxLength="30" />
+          <Property Name="dni_cli" Type="int" />
+          <Property Name="id_Ubigeo" Type="nchar" MaxLength="6" />
+          <Property Name="dirección" Type="nvarchar" MaxLength="30" />
+          <Property Name="tel_cliente" Type="nvarchar" MaxLength="30" />
+          <Property Name="Usu_Registro" Type="varchar" MaxLength="20" />
+          <Property Name="est_cli" Type="int" />
+          <Property Name="sexo" Type="char" MaxLength="2" />
+          <Property Name="email" Type="nvarchar" MaxLength="40" />
+          <Property Name="fec_registro" Type="date" />
+          <Property Name="num_registro" Type="nchar" MaxLength="10" />
+          <Property Name="fec_Ult_Mod" Type="date" />
+          <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Consulta">
+          <Key>
+            <PropertyRef Name="id_consulta" />
+          </Key>
+          <Property Name="id_consulta" Type="int" Nullable="false" />
+          <Property Name="fec_consulta" Type="date" />
+          <Property Name="cod_veterinario" Type="int" />
+          <Property Name="cod_mascota" Type="int" />
+          <Property Name="est_consulta" Type="int" />
+          <Property Name="prec_consulta" Type="money" Nullable="false" />
+          <Property Name="igv" Type="money" Nullable="false" />
+          <Property Name="diagnostico" Type="text" />
+          <Property Name="fec_proxconsulta" Type="date" />
+          <Property Name="fec_Ult_Mod" Type="date" />
+          <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Det_Consulta">
+          <Key>
+            <PropertyRef Name="id_Det_consulta" />
+          </Key>
+          <Property Name="id_Det_consulta" Type="int" Nullable="false" />
+          <Property Name="id_consulta" Type="int" Nullable="false" />
+          <Property Name="cod_medicamento" Type="int" />
+          <Property Name="observaciones" Type="varchar" MaxLength="159" />
+          <Property Name="tratamiento" Type="varchar" MaxLength="159" />
+          <Property Name="fec_registro" Type="date" />
+          <Property Name="fec_Ult_Mod" Type="date" />
+          <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Esp">
+          <Key>
+            <PropertyRef Name="cod_esp" />
+          </Key>
+          <Property Name="cod_esp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="des_esp" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Especialidad">
+          <Key>
+            <PropertyRef Name="cod_especialidad" />
+          </Key>
+          <Property Name="cod_especialidad" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Mascota">
+          <Key>
+            <PropertyRef Name="cod_mascota" />
+          </Key>
+          <Property Name="cod_mascota" Type="int" Nullable="false" />
+          <Property Name="cod_esp" Type="int" />
+          <Property Name="nom_mascota" Type="nvarchar" MaxLength="40" />
+          <Property Name="cod_cliente" Type="int" />
+          <Property Name="nom_cliente" Type="nvarchar" MaxLength="30" />
+          <Property Name="ape_cliente" Type="nvarchar" MaxLength="30" />
+          <Property Name="foto" Type="image" />
+          <Property Name="sexo" Type="char" MaxLength="2" />
+          <Property Name="color" Type="nvarchar" MaxLength="50" />
+          <Property Name="fec_nacimiento" Type="date" />
+          <Property Name="est_mascota" Type="int" />
+          <Property Name="fec_Ult_Mod" Type="date" />
+          <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Medicamento">
+          <Key>
+            <PropertyRef Name="cod_medicamento" />
+          </Key>
+          <Property Name="cod_medicamento" Type="int" Nullable="false" />
+          <Property Name="des_medicamento" Type="nvarchar" MaxLength="30" />
+          <Property Name="cod_tipomedicamento" Type="int" />
+          <Property Name="prec_med" Type="money" Nullable="false" />
+          <Property Name="igv" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ubigeo">
+          <Key>
+            <PropertyRef Name="id_ubigeo" />
+          </Key>
+          <Property Name="id_ubigeo" Type="nchar" MaxLength="6" Nullable="false" />
+          <Property Name="IdDepa" Type="nvarchar" MaxLength="255" />
+          <Property Name="IdProv" Type="nvarchar" MaxLength="255" />
+          <Property Name="IdDist" Type="nvarchar" MaxLength="255" />
+          <Property Name="Departamento" Type="nvarchar" MaxLength="255" />
+          <Property Name="Provincia" Type="nvarchar" MaxLength="255" />
+          <Property Name="Distrito" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Login_Usuario" />
+          </Key>
+          <Property Name="Login_Usuario" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="pass_Usuario" Type="varchar" MaxLength="20" />
+          <Property Name="niv_Usuario" Type="int" />
+          <Property Name="est_Usuario" Type="int" />
+          <Property Name="fec_Usuario" Type="date" />
+          <Property Name="Usu_Registro" Type="varchar" MaxLength="20" />
+          <Property Name="fec_Ult_Mod" Type="date" />
+          <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Veterinario">
+          <Key>
+            <PropertyRef Name="cod_veterinario" />
+          </Key>
+          <Property Name="cod_veterinario" Type="int" Nullable="false" />
+          <Property Name="nom_veterinario" Type="nvarchar" MaxLength="30" />
+          <Property Name="ape_veterinario" Type="nvarchar" MaxLength="30" />
+          <Property Name="Usu_Registro" Type="varchar" MaxLength="20" />
+          <Property Name="sueldo" Type="int" />
+          <Property Name="dni_vet" Type="int" />
+          <Property Name="foto_vet" Type="nvarchar" MaxLength="50" />
+          <Property Name="est_vet" Type="int" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="80" />
+          <Property Name="tel_veterinario" Type="nvarchar" MaxLength="30" />
+          <Property Name="cod_especialidad" Type="int" />
+          <Property Name="id_ubigeo" Type="nchar" MaxLength="6" />
+          <Property Name="fec_Ult_Mod" Type="date" />
+          <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBVeterinaria.dbo.vw_VistaCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vw_VistaCliente">
+          <Key>
+            <PropertyRef Name="cod_cliente" />
+          </Key>
+          <Property Name="cod_cliente" Type="int" Nullable="false" />
+          <Property Name="dni_cli" Type="int" />
+          <Property Name="Cliente" Type="nvarchar" MaxLength="61" />
+          <Property Name="dirección" Type="nvarchar" MaxLength="30" />
+          <Property Name="tel_cliente" Type="nvarchar" MaxLength="30" />
+          <Property Name="est_cli" Type="int" />
+          <Property Name="fec_registro" Type="date" />
+          <Property Name="Estado" Type="varchar" MaxLength="8" />
+          <Property Name="Sexo" Type="varchar" MaxLength="9" />
+          <Property Name="departamento" Type="nvarchar" MaxLength="255" />
+          <Property Name="provincia" Type="nvarchar" MaxLength="255" />
+          <Property Name="distrito" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBVeterinaria.dbo.vw_VistaConsulta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vw_VistaConsulta">
+          <Key>
+            <PropertyRef Name="id_consulta" />
+            <PropertyRef Name="cod_cliente" />
+            <PropertyRef Name="cod_veterinario" />
+          </Key>
+          <Property Name="id_consulta" Type="int" Nullable="false" />
+          <Property Name="fec_consulta" Type="date" />
+          <Property Name="cod_mascota" Type="int" />
+          <Property Name="nom_mascota" Type="nvarchar" MaxLength="40" />
+          <Property Name="observaciones" Type="varchar" MaxLength="159" />
+          <Property Name="cod_cliente" Type="int" Nullable="false" />
+          <Property Name="nom_cliente" Type="nvarchar" MaxLength="30" />
+          <Property Name="ape_Cliente" Type="nvarchar" MaxLength="30" />
+          <Property Name="dni_cli" Type="int" />
+          <Property Name="tel_cliente" Type="nvarchar" MaxLength="30" />
+          <Property Name="departamento" Type="nvarchar" MaxLength="255" />
+          <Property Name="provincia" Type="nvarchar" MaxLength="255" />
+          <Property Name="distrito" Type="nvarchar" MaxLength="255" />
+          <Property Name="Total" Type="money" />
+          <Property Name="est_consulta" Type="int" />
+          <Property Name="Estado" Type="varchar" MaxLength="9" />
+          <Property Name="cod_veterinario" Type="int" Nullable="false" />
+          <Property Name="nom_veterinario" Type="nvarchar" MaxLength="30" />
+          <Property Name="ape_veterinario" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBVeterinaria.dbo.vw_VistaVeterinario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vw_VistaVeterinario">
+          <Key>
+            <PropertyRef Name="cod_veterinario" />
+          </Key>
+          <Property Name="cod_veterinario" Type="int" Nullable="false" />
+          <Property Name="nom_veterinario" Type="nvarchar" MaxLength="30" />
+          <Property Name="ape_veterinario" Type="nvarchar" MaxLength="30" />
+          <Property Name="Departamento" Type="nvarchar" MaxLength="255" />
+          <Property Name="Provincia" Type="nvarchar" MaxLength="255" />
+          <Property Name="dni_vet" Type="nvarchar" MaxLength="255" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="30" />
+          <Property Name="sueldo" Type="int" />
+          <Property Name="Estado" Type="varchar" MaxLength="8" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="80" />
+          <Property Name="tel_veterinario" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="Cliente_FK">
+          <End Role="Ubigeo" Type="Self.Ubigeo" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ubigeo">
+              <PropertyRef Name="id_ubigeo" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="id_Ubigeo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Consulta_FK">
+          <End Role="Veterinario" Type="Self.Veterinario" Multiplicity="0..1" />
+          <End Role="Consulta" Type="Self.Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Veterinario">
+              <PropertyRef Name="cod_veterinario" />
+            </Principal>
+            <Dependent Role="Consulta">
+              <PropertyRef Name="cod_veterinario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Consulta_FK2">
+          <End Role="Mascota" Type="Self.Mascota" Multiplicity="0..1" />
+          <End Role="Consulta" Type="Self.Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mascota">
+              <PropertyRef Name="cod_mascota" />
+            </Principal>
+            <Dependent Role="Consulta">
+              <PropertyRef Name="cod_mascota" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETCONSULTA_FK">
+          <End Role="Consulta" Type="Self.Consulta" Multiplicity="1" />
+          <End Role="Det_Consulta" Type="Self.Det_Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consulta">
+              <PropertyRef Name="id_consulta" />
+            </Principal>
+            <Dependent Role="Det_Consulta">
+              <PropertyRef Name="id_consulta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETCONSULTA_FK2">
+          <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="0..1" />
+          <End Role="Det_Consulta" Type="Self.Det_Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicamento">
+              <PropertyRef Name="cod_medicamento" />
+            </Principal>
+            <Dependent Role="Det_Consulta">
+              <PropertyRef Name="cod_medicamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Mascota_FK">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Mascota" Type="Self.Mascota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="cod_cliente" />
+            </Principal>
+            <Dependent Role="Mascota">
+              <PropertyRef Name="cod_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Mascota_FK2">
+          <End Role="Esp" Type="Self.Esp" Multiplicity="0..1" />
+          <End Role="Mascota" Type="Self.Mascota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Esp">
+              <PropertyRef Name="cod_esp" />
+            </Principal>
+            <Dependent Role="Mascota">
+              <PropertyRef Name="cod_esp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Veterinario_FK">
+          <End Role="Especialidad" Type="Self.Especialidad" Multiplicity="0..1" />
+          <End Role="Veterinario" Type="Self.Veterinario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Especialidad">
+              <PropertyRef Name="cod_especialidad" />
+            </Principal>
+            <Dependent Role="Veterinario">
+              <PropertyRef Name="cod_especialidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Veterinario_FK2">
+          <End Role="Ubigeo" Type="Self.Ubigeo" Multiplicity="0..1" />
+          <End Role="Veterinario" Type="Self.Veterinario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ubigeo">
+              <PropertyRef Name="id_ubigeo" />
+            </Principal>
+            <Dependent Role="Veterinario">
+              <PropertyRef Name="id_ubigeo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="usp_ActualizarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vcod" Type="int" Mode="In" />
+          <Parameter Name="vnom" Type="nvarchar" Mode="In" />
+          <Parameter Name="vape" Type="nvarchar" Mode="In" />
+          <Parameter Name="vdni" Type="int" Mode="In" />
+          <Parameter Name="vidubigeo" Type="nchar" Mode="In" />
+          <Parameter Name="vdireccion" Type="nvarchar" Mode="In" />
+          <Parameter Name="vtel_cli" Type="nvarchar" Mode="In" />
+          <Parameter Name="vest_cli" Type="int" Mode="In" />
+          <Parameter Name="vsexo" Type="char" Mode="In" />
+          <Parameter Name="vemail" Type="nvarchar" Mode="In" />
+          <Parameter Name="vnum_reg" Type="nchar" Mode="In" />
+          <Parameter Name="vusu_ult_mod" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ActualizarMascota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vcod_mas" Type="int" Mode="In" />
+          <Parameter Name="vcod_esp" Type="int" Mode="In" />
+          <Parameter Name="vnom_mas" Type="nvarchar" Mode="In" />
+          <Parameter Name="vnom_cli" Type="nvarchar" Mode="In" />
+          <Parameter Name="vape_cli" Type="nvarchar" Mode="In" />
+          <Parameter Name="vcod_cli" Type="int" Mode="In" />
+          <Parameter Name="vfoto_mas" Type="image" Mode="In" />
+          <Parameter Name="vsexo_mas" Type="char" Mode="In" />
+          <Parameter Name="vcolor_mas" Type="nvarchar" Mode="In" />
+          <Parameter Name="vfec_mas" Type="date" Mode="In" />
+          <Parameter Name="vest_mascota" Type="int" Mode="In" />
+          <Parameter Name="vUsuUlt_Mod" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ConsultarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vcod" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ConsultasXAño" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vaño3" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_EliminarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vcod" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_EliminarMascota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vcod_mas" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vnom" Type="nvarchar" Mode="In" />
+          <Parameter Name="vape" Type="nvarchar" Mode="In" />
+          <Parameter Name="vdni" Type="int" Mode="In" />
+          <Parameter Name="vidubigeo" Type="nchar" Mode="In" />
+          <Parameter Name="vdireccion" Type="nvarchar" Mode="In" />
+          <Parameter Name="vtel_cli" Type="nvarchar" Mode="In" />
+          <Parameter Name="vusu_reg" Type="varchar" Mode="In" />
+          <Parameter Name="vest_cli" Type="int" Mode="In" />
+          <Parameter Name="vsexo" Type="char" Mode="In" />
+          <Parameter Name="vemail" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertarMascota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vnom_mas" Type="nvarchar" Mode="In" />
+          <Parameter Name="vnom_cli" Type="nvarchar" Mode="In" />
+          <Parameter Name="vape_cli" Type="nvarchar" Mode="In" />
+          <Parameter Name="vcod_cli" Type="int" Mode="In" />
+          <Parameter Name="vcod_esp" Type="int" Mode="In" />
+          <Parameter Name="vfoto_mas" Type="image" Mode="In" />
+          <Parameter Name="vsexo_mas" Type="char" Mode="In" />
+          <Parameter Name="vcolor_mas" Type="nvarchar" Mode="In" />
+          <Parameter Name="vfec_mas" Type="date" Mode="In" />
+          <Parameter Name="vest_mascota" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarConsultasMascotaFecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vcod_mascota" Type="int" Mode="In" />
+          <Parameter Name="vFechaInicio1" Type="date" Mode="In" />
+          <Parameter Name="vFechaFin1" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarConsultasMascotaFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vcod_mascota" Type="int" Mode="In" />
+          <Parameter Name="vFechaInicio1" Type="date" Mode="In" />
+          <Parameter Name="vFechaFin1" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarConsultasMascotaFechas2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vcod_mascota" Type="int" Mode="In" />
+          <Parameter Name="vFechaInicio1" Type="date" Mode="In" />
+          <Parameter Name="vFechaFin1" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarConsultasVeterinarioFecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vcod_veterinario" Type="int" Mode="In" />
+          <Parameter Name="vEstado" Type="varchar" Mode="In" />
+          <Parameter Name="vFechaInicio" Type="date" Mode="In" />
+          <Parameter Name="vFechaFin" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarConsultasVeterinarioFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vcod_veterinario" Type="int" Mode="In" />
+          <Parameter Name="vEstado" Type="varchar" Mode="In" />
+          <Parameter Name="vFechaInicio" Type="date" Mode="In" />
+          <Parameter Name="vFechaFin" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarConsultasVeterinarioFechas2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vcod_veterinario" Type="int" Mode="In" />
+          <Parameter Name="vEstado" Type="varchar" Mode="In" />
+          <Parameter Name="vFechaInicio" Type="date" Mode="In" />
+          <Parameter Name="vFechaFin" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarMascotasdeClientesFecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod_Cliente" Type="int" Mode="In" />
+          <Parameter Name="vEstado2" Type="varchar" Mode="In" />
+          <Parameter Name="vFechaInicio3" Type="date" Mode="In" />
+          <Parameter Name="vFechaFin3" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarMascotasdeClientesFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod_Cliente" Type="int" Mode="In" />
+          <Parameter Name="vEstado2" Type="varchar" Mode="In" />
+          <Parameter Name="vFechaInicio3" Type="date" Mode="In" />
+          <Parameter Name="vFechaFin3" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarMascotasdeClientesFechas2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod_Cliente" Type="int" Mode="In" />
+          <Parameter Name="vEstado2" Type="varchar" Mode="In" />
+          <Parameter Name="vFechaInicio3" Type="date" Mode="In" />
+          <Parameter Name="vFechaFin3" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarMascotasPorEspecie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vcodEspecie" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarMascotasPorEspecie2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vcodEspecie" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarVeterinario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ResumenConsultasXAño" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vaño3" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_TopAtencionesClientesMascotasAño" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vaño" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_TopAtencionesClientesMascotasAño2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vaño" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_TopAtencionesMascotasAño" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vaño2" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_TopAtencionesMascotasAño2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vaño2" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_TopMedicinasXAño" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vaño4" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="DBVeterinariaModelStoreContainer">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Consulta" EntityType="Self.Consulta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Det_Consulta" EntityType="Self.Det_Consulta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Esp" EntityType="Self.Esp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Especialidad" EntityType="Self.Especialidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mascota" EntityType="Self.Mascota" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medicamento" EntityType="Self.Medicamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ubigeo" EntityType="Self.Ubigeo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Veterinario" EntityType="Self.Veterinario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_VistaCliente" EntityType="Self.vw_VistaCliente" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_VistaCliente].[cod_cliente] AS [cod_cliente], 
+    [vw_VistaCliente].[dni_cli] AS [dni_cli], 
+    [vw_VistaCliente].[Cliente] AS [Cliente], 
+    [vw_VistaCliente].[dirección] AS [dirección], 
+    [vw_VistaCliente].[tel_cliente] AS [tel_cliente], 
+    [vw_VistaCliente].[est_cli] AS [est_cli], 
+    [vw_VistaCliente].[fec_registro] AS [fec_registro], 
+    [vw_VistaCliente].[Estado] AS [Estado], 
+    [vw_VistaCliente].[Sexo] AS [Sexo], 
+    [vw_VistaCliente].[departamento] AS [departamento], 
+    [vw_VistaCliente].[provincia] AS [provincia], 
+    [vw_VistaCliente].[distrito] AS [distrito]
+    FROM [dbo].[vw_VistaCliente] AS [vw_VistaCliente]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_VistaConsulta" EntityType="Self.vw_VistaConsulta" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_VistaConsulta].[id_consulta] AS [id_consulta], 
+    [vw_VistaConsulta].[fec_consulta] AS [fec_consulta], 
+    [vw_VistaConsulta].[cod_mascota] AS [cod_mascota], 
+    [vw_VistaConsulta].[nom_mascota] AS [nom_mascota], 
+    [vw_VistaConsulta].[observaciones] AS [observaciones], 
+    [vw_VistaConsulta].[cod_cliente] AS [cod_cliente], 
+    [vw_VistaConsulta].[nom_cliente] AS [nom_cliente], 
+    [vw_VistaConsulta].[ape_Cliente] AS [ape_Cliente], 
+    [vw_VistaConsulta].[dni_cli] AS [dni_cli], 
+    [vw_VistaConsulta].[tel_cliente] AS [tel_cliente], 
+    [vw_VistaConsulta].[departamento] AS [departamento], 
+    [vw_VistaConsulta].[provincia] AS [provincia], 
+    [vw_VistaConsulta].[distrito] AS [distrito], 
+    [vw_VistaConsulta].[Total] AS [Total], 
+    [vw_VistaConsulta].[est_consulta] AS [est_consulta], 
+    [vw_VistaConsulta].[Estado] AS [Estado], 
+    [vw_VistaConsulta].[cod_veterinario] AS [cod_veterinario], 
+    [vw_VistaConsulta].[nom_veterinario] AS [nom_veterinario], 
+    [vw_VistaConsulta].[ape_veterinario] AS [ape_veterinario]
+    FROM [dbo].[vw_VistaConsulta] AS [vw_VistaConsulta]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_VistaVeterinario" EntityType="Self.vw_VistaVeterinario" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_VistaVeterinario].[cod_veterinario] AS [cod_veterinario], 
+    [vw_VistaVeterinario].[nom_veterinario] AS [nom_veterinario], 
+    [vw_VistaVeterinario].[ape_veterinario] AS [ape_veterinario], 
+    [vw_VistaVeterinario].[Departamento] AS [Departamento], 
+    [vw_VistaVeterinario].[Provincia] AS [Provincia], 
+    [vw_VistaVeterinario].[dni_vet] AS [dni_vet], 
+    [vw_VistaVeterinario].[descripcion] AS [descripcion], 
+    [vw_VistaVeterinario].[sueldo] AS [sueldo], 
+    [vw_VistaVeterinario].[Estado] AS [Estado], 
+    [vw_VistaVeterinario].[direccion] AS [direccion], 
+    [vw_VistaVeterinario].[tel_veterinario] AS [tel_veterinario]
+    FROM [dbo].[vw_VistaVeterinario] AS [vw_VistaVeterinario]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="Cliente_FK" Association="Self.Cliente_FK">
+            <End Role="Ubigeo" EntitySet="Ubigeo" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="Consulta_FK" Association="Self.Consulta_FK">
+            <End Role="Veterinario" EntitySet="Veterinario" />
+            <End Role="Consulta" EntitySet="Consulta" />
+          </AssociationSet>
+          <AssociationSet Name="Consulta_FK2" Association="Self.Consulta_FK2">
+            <End Role="Mascota" EntitySet="Mascota" />
+            <End Role="Consulta" EntitySet="Consulta" />
+          </AssociationSet>
+          <AssociationSet Name="DETCONSULTA_FK" Association="Self.DETCONSULTA_FK">
+            <End Role="Consulta" EntitySet="Consulta" />
+            <End Role="Det_Consulta" EntitySet="Det_Consulta" />
+          </AssociationSet>
+          <AssociationSet Name="DETCONSULTA_FK2" Association="Self.DETCONSULTA_FK2">
+            <End Role="Medicamento" EntitySet="Medicamento" />
+            <End Role="Det_Consulta" EntitySet="Det_Consulta" />
+          </AssociationSet>
+          <AssociationSet Name="Mascota_FK" Association="Self.Mascota_FK">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Mascota" EntitySet="Mascota" />
+          </AssociationSet>
+          <AssociationSet Name="Mascota_FK2" Association="Self.Mascota_FK2">
+            <End Role="Esp" EntitySet="Esp" />
+            <End Role="Mascota" EntitySet="Mascota" />
+          </AssociationSet>
+          <AssociationSet Name="Veterinario_FK" Association="Self.Veterinario_FK">
+            <End Role="Especialidad" EntitySet="Especialidad" />
+            <End Role="Veterinario" EntitySet="Veterinario" />
+          </AssociationSet>
+          <AssociationSet Name="Veterinario_FK2" Association="Self.Veterinario_FK2">
+            <End Role="Ubigeo" EntitySet="Ubigeo" />
+            <End Role="Veterinario" EntitySet="Veterinario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBVeterinariaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="cod_cliente" />
+          </Key>
+          <Property Name="cod_cliente" Type="Int32" Nullable="false" />
+          <Property Name="nom_cliente" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ape_cliente" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="dni_cli" Type="Int32" />
+          <Property Name="id_Ubigeo" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="dirección" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="tel_cliente" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Usu_Registro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="est_cli" Type="Int32" />
+          <Property Name="sexo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="fec_registro" Type="DateTime" Precision="0" />
+          <Property Name="num_registro" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="fec_Ult_Mod" Type="DateTime" Precision="0" />
+          <Property Name="Usu_Ult_Mod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ubigeo" Relationship="Self.Cliente_FK" FromRole="Cliente" ToRole="Ubigeo" />
+          <NavigationProperty Name="Mascota" Relationship="Self.Mascota_FK" FromRole="Cliente" ToRole="Mascota" />
+        </EntityType>
+        <EntityType Name="Consulta">
+          <Key>
+            <PropertyRef Name="id_consulta" />
+          </Key>
+          <Property Name="id_consulta" Type="Int32" Nullable="false" />
+          <Property Name="fec_consulta" Type="DateTime" Precision="0" />
+          <Property Name="cod_veterinario" Type="Int32" />
+          <Property Name="cod_mascota" Type="Int32" />
+          <Property Name="est_consulta" Type="Int32" />
+          <Property Name="prec_consulta" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="igv" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="diagnostico" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fec_proxconsulta" Type="DateTime" Precision="0" />
+          <Property Name="fec_Ult_Mod" Type="DateTime" Precision="0" />
+          <Property Name="Usu_Ult_Mod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Veterinario" Relationship="Self.Consulta_FK" FromRole="Consulta" ToRole="Veterinario" />
+          <NavigationProperty Name="Mascota" Relationship="Self.Consulta_FK2" FromRole="Consulta" ToRole="Mascota" />
+          <NavigationProperty Name="Det_Consulta" Relationship="Self.DETCONSULTA_FK" FromRole="Consulta" ToRole="Det_Consulta" />
+        </EntityType>
+        <EntityType Name="Det_Consulta">
+          <Key>
+            <PropertyRef Name="id_Det_consulta" />
+          </Key>
+          <Property Name="id_Det_consulta" Type="Int32" Nullable="false" />
+          <Property Name="id_consulta" Type="Int32" Nullable="false" />
+          <Property Name="cod_medicamento" Type="Int32" />
+          <Property Name="observaciones" Type="String" MaxLength="159" FixedLength="false" Unicode="false" />
+          <Property Name="tratamiento" Type="String" MaxLength="159" FixedLength="false" Unicode="false" />
+          <Property Name="fec_registro" Type="DateTime" Precision="0" />
+          <Property Name="fec_Ult_Mod" Type="DateTime" Precision="0" />
+          <Property Name="Usu_Ult_Mod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Consulta" Relationship="Self.DETCONSULTA_FK" FromRole="Det_Consulta" ToRole="Consulta" />
+          <NavigationProperty Name="Medicamento" Relationship="Self.DETCONSULTA_FK2" FromRole="Det_Consulta" ToRole="Medicamento" />
+        </EntityType>
+        <EntityType Name="Esp">
+          <Key>
+            <PropertyRef Name="cod_esp" />
+          </Key>
+          <Property Name="cod_esp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="des_esp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Mascota" Relationship="Self.Mascota_FK2" FromRole="Esp" ToRole="Mascota" />
+        </EntityType>
+        <EntityType Name="Especialidad">
+          <Key>
+            <PropertyRef Name="cod_especialidad" />
+          </Key>
+          <Property Name="cod_especialidad" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Veterinario" Relationship="Self.Veterinario_FK" FromRole="Especialidad" ToRole="Veterinario" />
+        </EntityType>
+        <EntityType Name="Mascota">
+          <Key>
+            <PropertyRef Name="cod_mascota" />
+          </Key>
+          <Property Name="cod_mascota" Type="Int32" Nullable="false" />
+          <Property Name="cod_esp" Type="Int32" />
+          <Property Name="nom_mascota" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="cod_cliente" Type="Int32" />
+          <Property Name="nom_cliente" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ape_cliente" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="sexo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fec_nacimiento" Type="DateTime" Precision="0" />
+          <Property Name="est_mascota" Type="Int32" />
+          <Property Name="fec_Ult_Mod" Type="DateTime" Precision="0" />
+          <Property Name="Usu_Ult_Mod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.Mascota_FK" FromRole="Mascota" ToRole="Cliente" />
+          <NavigationProperty Name="Consulta" Relationship="Self.Consulta_FK2" FromRole="Mascota" ToRole="Consulta" />
+          <NavigationProperty Name="Esp" Relationship="Self.Mascota_FK2" FromRole="Mascota" ToRole="Esp" />
+        </EntityType>
+        <EntityType Name="Medicamento">
+          <Key>
+            <PropertyRef Name="cod_medicamento" />
+          </Key>
+          <Property Name="cod_medicamento" Type="Int32" Nullable="false" />
+          <Property Name="des_medicamento" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="cod_tipomedicamento" Type="Int32" />
+          <Property Name="prec_med" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="igv" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Det_Consulta" Relationship="Self.DETCONSULTA_FK2" FromRole="Medicamento" ToRole="Det_Consulta" />
+        </EntityType>
+        <EntityType Name="Ubigeo">
+          <Key>
+            <PropertyRef Name="id_ubigeo" />
+          </Key>
+          <Property Name="id_ubigeo" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IdDepa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IdProv" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IdDist" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Departamento" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Provincia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Distrito" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cliente" Relationship="Self.Cliente_FK" FromRole="Ubigeo" ToRole="Cliente" />
+          <NavigationProperty Name="Veterinario" Relationship="Self.Veterinario_FK2" FromRole="Ubigeo" ToRole="Veterinario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Login_Usuario" />
+          </Key>
+          <Property Name="Login_Usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pass_Usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="niv_Usuario" Type="Int32" />
+          <Property Name="est_Usuario" Type="Int32" />
+          <Property Name="fec_Usuario" Type="DateTime" Precision="0" />
+          <Property Name="Usu_Registro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fec_Ult_Mod" Type="DateTime" Precision="0" />
+          <Property Name="Usu_Ult_Mod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Veterinario">
+          <Key>
+            <PropertyRef Name="cod_veterinario" />
+          </Key>
+          <Property Name="cod_veterinario" Type="Int32" Nullable="false" />
+          <Property Name="nom_veterinario" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ape_veterinario" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Usu_Registro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sueldo" Type="Int32" />
+          <Property Name="dni_vet" Type="Int32" />
+          <Property Name="foto_vet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="est_vet" Type="Int32" />
+          <Property Name="direccion" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="tel_veterinario" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="cod_especialidad" Type="Int32" />
+          <Property Name="id_ubigeo" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="fec_Ult_Mod" Type="DateTime" Precision="0" />
+          <Property Name="Usu_Ult_Mod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Consulta" Relationship="Self.Consulta_FK" FromRole="Veterinario" ToRole="Consulta" />
+          <NavigationProperty Name="Especialidad" Relationship="Self.Veterinario_FK" FromRole="Veterinario" ToRole="Especialidad" />
+          <NavigationProperty Name="Ubigeo" Relationship="Self.Veterinario_FK2" FromRole="Veterinario" ToRole="Ubigeo" />
+        </EntityType>
+        <Association Name="Cliente_FK">
+          <End Role="Ubigeo" Type="Self.Ubigeo" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ubigeo">
+              <PropertyRef Name="id_ubigeo" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="id_Ubigeo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Mascota_FK">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Mascota" Type="Self.Mascota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="cod_cliente" />
+            </Principal>
+            <Dependent Role="Mascota">
+              <PropertyRef Name="cod_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Consulta_FK">
+          <End Role="Veterinario" Type="Self.Veterinario" Multiplicity="0..1" />
+          <End Role="Consulta" Type="Self.Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Veterinario">
+              <PropertyRef Name="cod_veterinario" />
+            </Principal>
+            <Dependent Role="Consulta">
+              <PropertyRef Name="cod_veterinario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Consulta_FK2">
+          <End Role="Mascota" Type="Self.Mascota" Multiplicity="0..1" />
+          <End Role="Consulta" Type="Self.Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mascota">
+              <PropertyRef Name="cod_mascota" />
+            </Principal>
+            <Dependent Role="Consulta">
+              <PropertyRef Name="cod_mascota" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETCONSULTA_FK">
+          <End Role="Consulta" Type="Self.Consulta" Multiplicity="1" />
+          <End Role="Det_Consulta" Type="Self.Det_Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consulta">
+              <PropertyRef Name="id_consulta" />
+            </Principal>
+            <Dependent Role="Det_Consulta">
+              <PropertyRef Name="id_consulta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETCONSULTA_FK2">
+          <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="0..1" />
+          <End Role="Det_Consulta" Type="Self.Det_Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicamento">
+              <PropertyRef Name="cod_medicamento" />
+            </Principal>
+            <Dependent Role="Det_Consulta">
+              <PropertyRef Name="cod_medicamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Mascota_FK2">
+          <End Role="Esp" Type="Self.Esp" Multiplicity="0..1" />
+          <End Role="Mascota" Type="Self.Mascota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Esp">
+              <PropertyRef Name="cod_esp" />
+            </Principal>
+            <Dependent Role="Mascota">
+              <PropertyRef Name="cod_esp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Veterinario_FK">
+          <End Role="Especialidad" Type="Self.Especialidad" Multiplicity="0..1" />
+          <End Role="Veterinario" Type="Self.Veterinario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Especialidad">
+              <PropertyRef Name="cod_especialidad" />
+            </Principal>
+            <Dependent Role="Veterinario">
+              <PropertyRef Name="cod_especialidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Veterinario_FK2">
+          <End Role="Ubigeo" Type="Self.Ubigeo" Multiplicity="0..1" />
+          <End Role="Veterinario" Type="Self.Veterinario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ubigeo">
+              <PropertyRef Name="id_ubigeo" />
+            </Principal>
+            <Dependent Role="Veterinario">
+              <PropertyRef Name="id_ubigeo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBVeterinariaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Consulta" EntityType="Self.Consulta" />
+          <EntitySet Name="Det_Consulta" EntityType="Self.Det_Consulta" />
+          <EntitySet Name="Esp" EntityType="Self.Esp" />
+          <EntitySet Name="Especialidad" EntityType="Self.Especialidad" />
+          <EntitySet Name="Mascota" EntityType="Self.Mascota" />
+          <EntitySet Name="Medicamento" EntityType="Self.Medicamento" />
+          <EntitySet Name="Ubigeo" EntityType="Self.Ubigeo" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="Veterinario" EntityType="Self.Veterinario" />
+          <AssociationSet Name="Cliente_FK" Association="Self.Cliente_FK">
+            <End Role="Ubigeo" EntitySet="Ubigeo" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="Mascota_FK" Association="Self.Mascota_FK">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Mascota" EntitySet="Mascota" />
+          </AssociationSet>
+          <AssociationSet Name="Consulta_FK" Association="Self.Consulta_FK">
+            <End Role="Veterinario" EntitySet="Veterinario" />
+            <End Role="Consulta" EntitySet="Consulta" />
+          </AssociationSet>
+          <AssociationSet Name="Consulta_FK2" Association="Self.Consulta_FK2">
+            <End Role="Mascota" EntitySet="Mascota" />
+            <End Role="Consulta" EntitySet="Consulta" />
+          </AssociationSet>
+          <AssociationSet Name="DETCONSULTA_FK" Association="Self.DETCONSULTA_FK">
+            <End Role="Consulta" EntitySet="Consulta" />
+            <End Role="Det_Consulta" EntitySet="Det_Consulta" />
+          </AssociationSet>
+          <AssociationSet Name="DETCONSULTA_FK2" Association="Self.DETCONSULTA_FK2">
+            <End Role="Medicamento" EntitySet="Medicamento" />
+            <End Role="Det_Consulta" EntitySet="Det_Consulta" />
+          </AssociationSet>
+          <AssociationSet Name="Mascota_FK2" Association="Self.Mascota_FK2">
+            <End Role="Esp" EntitySet="Esp" />
+            <End Role="Mascota" EntitySet="Mascota" />
+          </AssociationSet>
+          <AssociationSet Name="Veterinario_FK" Association="Self.Veterinario_FK">
+            <End Role="Especialidad" EntitySet="Especialidad" />
+            <End Role="Veterinario" EntitySet="Veterinario" />
+          </AssociationSet>
+          <AssociationSet Name="Veterinario_FK2" Association="Self.Veterinario_FK2">
+            <End Role="Ubigeo" EntitySet="Ubigeo" />
+            <End Role="Veterinario" EntitySet="Veterinario" />
+          </AssociationSet>
+          <FunctionImport Name="usp_ConsultarCliente">
+          <Parameter Name="vcod" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="vw_VistaConsulta" EntityType="DBVeterinariaModel.vw_VistaConsulta" />
+          <EntitySet Name="vw_VistaCliente" EntityType="DBVeterinariaModel.vw_VistaCliente" />
+          <FunctionImport Name="usp_ActualizarCliente">
+            <Parameter Name="vcod" Mode="In" Type="Int32" />
+            <Parameter Name="vnom" Mode="In" Type="String" />
+            <Parameter Name="vape" Mode="In" Type="String" />
+            <Parameter Name="vdni" Mode="In" Type="Int32" />
+            <Parameter Name="vidubigeo" Mode="In" Type="String" />
+            <Parameter Name="vdireccion" Mode="In" Type="String" />
+            <Parameter Name="vtel_cli" Mode="In" Type="String" />
+            <Parameter Name="vest_cli" Mode="In" Type="Int32" />
+            <Parameter Name="vsexo" Mode="In" Type="String" />
+            <Parameter Name="vemail" Mode="In" Type="String" />
+            <Parameter Name="vnum_reg" Mode="In" Type="String" />
+            <Parameter Name="vusu_ult_mod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarCliente">
+          <Parameter Name="vcod" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_InsertarCliente">
+            <Parameter Name="vnom" Mode="In" Type="String" />
+            <Parameter Name="vape" Mode="In" Type="String" />
+            <Parameter Name="vdni" Mode="In" Type="Int32" />
+            <Parameter Name="vidubigeo" Mode="In" Type="String" />
+            <Parameter Name="vdireccion" Mode="In" Type="String" />
+            <Parameter Name="vtel_cli" Mode="In" Type="String" />
+            <Parameter Name="vusu_reg" Mode="In" Type="String" />
+            <Parameter Name="vest_cli" Mode="In" Type="Int32" />
+            <Parameter Name="vsexo" Mode="In" Type="String" />
+            <Parameter Name="vemail" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarClientes" />
+          <FunctionImport Name="usp_ActualizarMascota">
+            <Parameter Name="vcod_mas" Mode="In" Type="Int32" />
+            <Parameter Name="vcod_esp" Mode="In" Type="Int32" />
+            <Parameter Name="vnom_mas" Mode="In" Type="String" />
+            <Parameter Name="vnom_cli" Mode="In" Type="String" />
+            <Parameter Name="vape_cli" Mode="In" Type="String" />
+            <Parameter Name="vcod_cli" Mode="In" Type="Int32" />
+            <Parameter Name="vfoto_mas" Mode="In" Type="Binary" />
+            <Parameter Name="vsexo_mas" Mode="In" Type="String" />
+            <Parameter Name="vcolor_mas" Mode="In" Type="String" />
+            <Parameter Name="vfec_mas" Mode="In" Type="DateTime" />
+            <Parameter Name="vest_mascota" Mode="In" Type="Int32" />
+            <Parameter Name="vUsuUlt_Mod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarMascota">
+          <Parameter Name="vcod_mas" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_InsertarMascota">
+            <Parameter Name="vnom_mas" Mode="In" Type="String" />
+            <Parameter Name="vnom_cli" Mode="In" Type="String" />
+            <Parameter Name="vape_cli" Mode="In" Type="String" />
+            <Parameter Name="vcod_cli" Mode="In" Type="Int32" />
+            <Parameter Name="vcod_esp" Mode="In" Type="Int32" />
+            <Parameter Name="vfoto_mas" Mode="In" Type="Binary" />
+            <Parameter Name="vsexo_mas" Mode="In" Type="String" />
+            <Parameter Name="vcolor_mas" Mode="In" Type="String" />
+            <Parameter Name="vfec_mas" Mode="In" Type="DateTime" />
+            <Parameter Name="vest_mascota" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarConsultasMascotaFechas" ReturnType="Collection(DBVeterinariaModel.usp_ListarConsultasMascotaFechas_Result)">
+            <Parameter Name="vcod_mascota" Mode="In" Type="Int32" />
+            <Parameter Name="vFechaInicio1" Mode="In" Type="DateTime" />
+            <Parameter Name="vFechaFin1" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarConsultasVeterinarioFechas" ReturnType="Collection(DBVeterinariaModel.usp_ListarConsultasVeterinarioFechas_Result)">
+            <Parameter Name="vcod_veterinario" Mode="In" Type="Int32" />
+            <Parameter Name="vEstado" Mode="In" Type="String" />
+            <Parameter Name="vFechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="vFechaFin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarMascotasdeClientesFechas" ReturnType="Collection(DBVeterinariaModel.usp_ListarMascotasdeClientesFechas_Result)">
+            <Parameter Name="vCod_Cliente" Mode="In" Type="Int32" />
+            <Parameter Name="vEstado2" Mode="In" Type="String" />
+            <Parameter Name="vFechaInicio3" Mode="In" Type="DateTime" />
+            <Parameter Name="vFechaFin3" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarMascotasPorEspecie" ReturnType="Collection(DBVeterinariaModel.usp_ListarMascotasPorEspecie_Result)">
+          <Parameter Name="vcodEspecie" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ConsultasXAño" ReturnType="Collection(DBVeterinariaModel.usp_ConsultasXAño_Result)">
+          <Parameter Name="vaño3" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TopAtencionesClientesMascotasAño" ReturnType="Collection(DBVeterinariaModel.usp_TopAtencionesClientesMascotasAño_Result)">
+          <Parameter Name="vaño" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TopAtencionesMascotasAño" ReturnType="Collection(DBVeterinariaModel.usp_TopAtencionesMascotasAño_Result)">
+          <Parameter Name="vaño2" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TopMedicinasXAño" ReturnType="Collection(DBVeterinariaModel.usp_TopMedicinasXAño_Result)">
+          <Parameter Name="vaño4" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ResumenConsultasXAño" ReturnType="Collection(DBVeterinariaModel.usp_ResumenConsultasXAño_Result)">
+          <Parameter Name="vaño3" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarConsultasMascotaFechas2" ReturnType="Collection(DBVeterinariaModel.usp_ListarConsultasMascotaFechas2_Result)">
+            <Parameter Name="vcod_mascota" Mode="In" Type="Int32" />
+            <Parameter Name="vFechaInicio1" Mode="In" Type="DateTime" />
+            <Parameter Name="vFechaFin1" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarConsultasMascotaFecha" ReturnType="Collection(DBVeterinariaModel.usp_ListarConsultasMascotaFecha_Result)">
+            <Parameter Name="vcod_mascota" Mode="In" Type="Int32" />
+            <Parameter Name="vFechaInicio1" Mode="In" Type="DateTime" />
+            <Parameter Name="vFechaFin1" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarConsultasVeterinarioFecha" ReturnType="Collection(DBVeterinariaModel.usp_ListarConsultasVeterinarioFecha_Result)">
+            <Parameter Name="vcod_veterinario" Mode="In" Type="Int32" />
+            <Parameter Name="vEstado" Mode="In" Type="String" />
+            <Parameter Name="vFechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="vFechaFin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarConsultasVeterinarioFechas2" ReturnType="Collection(DBVeterinariaModel.usp_ListarConsultasVeterinarioFechas2_Result)">
+            <Parameter Name="vcod_veterinario" Mode="In" Type="Int32" />
+            <Parameter Name="vEstado" Mode="In" Type="String" />
+            <Parameter Name="vFechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="vFechaFin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarMascotasPorEspecie2" ReturnType="Collection(DBVeterinariaModel.usp_ListarMascotasPorEspecie2_Result)">
+          <Parameter Name="vcodEspecie" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarMascotasdeClientesFecha" ReturnType="Collection(DBVeterinariaModel.usp_ListarMascotasdeClientesFecha_Result)">
+            <Parameter Name="vCod_Cliente" Mode="In" Type="Int32" />
+            <Parameter Name="vEstado2" Mode="In" Type="String" />
+            <Parameter Name="vFechaInicio3" Mode="In" Type="DateTime" />
+            <Parameter Name="vFechaFin3" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarMascotasdeClientesFechas2" ReturnType="Collection(DBVeterinariaModel.usp_ListarMascotasdeClientesFechas2_Result)">
+            <Parameter Name="vCod_Cliente" Mode="In" Type="Int32" />
+            <Parameter Name="vEstado2" Mode="In" Type="String" />
+            <Parameter Name="vFechaInicio3" Mode="In" Type="DateTime" />
+            <Parameter Name="vFechaFin3" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TopAtencionesClientesMascotasAño2" ReturnType="Collection(DBVeterinariaModel.usp_TopAtencionesClientesMascotasAño2_Result)">
+          <Parameter Name="vaño" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TopAtencionesMascotasAño2" ReturnType="Collection(DBVeterinariaModel.usp_TopAtencionesMascotasAño2_Result)">
+          <Parameter Name="vaño2" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="vw_VistaVeterinario" EntityType="DBVeterinariaModel.vw_VistaVeterinario" />
+          <FunctionImport Name="usp_ListarVeterinario" ReturnType="Collection(DBVeterinariaModel.usp_ListarVeterinario_Result)" />
+        </EntityContainer>
+        <EntityType Name="vw_VistaConsulta">
+          <Key>
+            <PropertyRef Name="id_consulta" />
+            <PropertyRef Name="cod_cliente" />
+            <PropertyRef Name="cod_veterinario" />
+          </Key>
+          <Property Name="id_consulta" Type="Int32" Nullable="false" />
+          <Property Name="fec_consulta" Type="DateTime" Precision="0" />
+          <Property Name="cod_mascota" Type="Int32" />
+          <Property Name="cod_cliente" Type="Int32" Nullable="false" />
+          <Property Name="dni_cli" Type="Int32" />
+          <Property Name="tel_cliente" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="departamento" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="provincia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="distrito" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="est_consulta" Type="Int32" />
+          <Property Name="Estado" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="cod_veterinario" Type="Int32" Nullable="false" />
+          <Property Name="nom_veterinario" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ape_veterinario" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="nom_mascota" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="observaciones" Type="String" MaxLength="159" FixedLength="false" Unicode="false" />
+          <Property Name="nom_cliente" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ape_Cliente" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_VistaCliente">
+          <Key>
+            <PropertyRef Name="cod_cliente" />
+          </Key>
+          <Property Name="cod_cliente" Type="Int32" Nullable="false" />
+          <Property Name="dni_cli" Type="Int32" />
+          <Property Name="Cliente" Type="String" MaxLength="61" FixedLength="false" Unicode="true" />
+          <Property Name="dirección" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="tel_cliente" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="est_cli" Type="Int32" />
+          <Property Name="fec_registro" Type="DateTime" Precision="0" />
+          <Property Name="Estado" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Sexo" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="departamento" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="provincia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="distrito" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="usp_ListarConsultasMascotaFechas_Result">
+          <Property Type="Int32" Name="cod_mascota" Nullable="true" />
+          <Property Type="DateTime" Name="fec_consulta" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarConsultasVeterinarioFechas_Result">
+          <Property Type="Int32" Name="cod_veterinario" Nullable="false" />
+          <Property Type="DateTime" Name="fec_consulta" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarMascotasdeClientesFechas_Result">
+          <Property Type="Int32" Name="cod_mascota" Nullable="true" />
+          <Property Type="String" Name="nom_mascota" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="cod_cliente" Nullable="false" />
+          <Property Type="String" Name="nom_cliente" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_cliente" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="cod_veterinario" Nullable="false" />
+          <Property Type="DateTime" Name="fec_consulta" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarMascotasPorEspecie_Result">
+          <Property Type="Int32" Name="cod_mascota" Nullable="false" />
+          <Property Type="Int32" Name="cod_esp" Nullable="true" />
+          <Property Type="String" Name="des_esp" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ConsultasXAño_Result">
+          <Property Type="Int32" Name="id_consulta" Nullable="false" />
+          <Property Type="DateTime" Name="fec_consulta" Nullable="true" />
+          <Property Type="Int32" Name="cod_mascota" Nullable="true" />
+          <Property Type="Int32" Name="cod_cliente" Nullable="false" />
+          <Property Type="Int32" Name="dni_cli" Nullable="true" />
+          <Property Type="String" Name="tel_cliente" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="departamento" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="provincia" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="distrito" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="est_consulta" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
+          <Property Type="Int32" Name="cod_veterinario" Nullable="false" />
+          <Property Type="String" Name="nom_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="cod_mascota1" Nullable="false" />
+          <Property Type="Int32" Name="cod_esp" Nullable="true" />
+          <Property Type="String" Name="nom_mascota" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="cod_cliente1" Nullable="true" />
+          <Property Type="String" Name="nom_cliente" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_cliente" Nullable="true" MaxLength="30" />
+          <Property Type="Binary" Name="foto" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="sexo" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="color" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="fec_nacimiento" Nullable="true" />
+          <Property Type="Int32" Name="est_mascota" Nullable="true" />
+          <Property Type="DateTime" Name="fec_Ult_Mod" Nullable="true" />
+          <Property Type="String" Name="Usu_Ult_Mod" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_TopAtencionesClientesMascotasAño_Result">
+          <Property Type="Int32" Name="cod_cliente" Nullable="true" />
+          <Property Type="Int32" Name="Consultas_Totales" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TopAtencionesMascotasAño_Result">
+          <Property Type="Int32" Name="cod_mascota" Nullable="false" />
+          <Property Type="Int32" Name="Consultas_Totales" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TopMedicinasXAño_Result">
+          <Property Type="Int32" Name="cod_medicamento" Nullable="true" />
+          <Property Type="String" Name="des_medicamento" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Cantidad_recetadas" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ResumenConsultasXAño_Result">
+          <Property Type="Int32" Name="Consultas_Totales" Nullable="true" />
+          <Property Type="Decimal" Name="Ingresos_Generados" Nullable="true" Precision="19" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarConsultasMascotaFechas2_Result">
+          <Property Type="Int32" Name="cod_mascota" Nullable="true" />
+          <Property Type="DateTime" Name="fec_consulta" Nullable="true" />
+          <Property Type="String" Name="nom_mascota" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="cod_cliente" Nullable="false" />
+          <Property Type="String" Name="nom_cliente" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_Cliente" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="cod_veterinario" Nullable="false" />
+          <Property Type="String" Name="nom_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="est_consulta" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarConsultasMascotaFecha_Result">
+          <Property Type="Int32" Name="id_consulta" Nullable="false" />
+          <Property Type="Int32" Name="cod_mascota" Nullable="true" />
+          <Property Type="DateTime" Name="fec_consulta" Nullable="true" />
+          <Property Type="String" Name="nom_mascota" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="cod_cliente" Nullable="false" />
+          <Property Type="String" Name="nom_cliente" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_Cliente" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="cod_veterinario" Nullable="false" />
+          <Property Type="String" Name="nom_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="est_consulta" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarConsultasVeterinarioFecha_Result">
+          <Property Type="Int32" Name="cod_veterinario" Nullable="false" />
+          <Property Type="String" Name="nom_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="nom_mascota" Nullable="true" MaxLength="40" />
+          <Property Type="DateTime" Name="fec_consulta" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarConsultasVeterinarioFechas2_Result">
+          <Property Type="Int32" Name="id_consulta" Nullable="false" />
+          <Property Type="Int32" Name="cod_veterinario" Nullable="false" />
+          <Property Type="String" Name="nom_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="nom_mascota" Nullable="true" MaxLength="40" />
+          <Property Type="DateTime" Name="fec_consulta" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarMascotasPorEspecie2_Result">
+          <Property Type="Int32" Name="cod_mascota" Nullable="false" />
+          <Property Type="String" Name="nom_mascota" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="cod_esp" Nullable="true" />
+          <Property Type="String" Name="des_esp" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarMascotasdeClientesFecha_Result">
+          <Property Type="Int32" Name="id_consulta" Nullable="false" />
+          <Property Type="Int32" Name="cod_mascota" Nullable="true" />
+          <Property Type="String" Name="nom_mascota" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="cod_cliente" Nullable="false" />
+          <Property Type="String" Name="nom_cliente" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_cliente" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="cod_veterinario" Nullable="false" />
+          <Property Type="DateTime" Name="fec_consulta" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
+          <Property Type="Int32" Name="cod_veterinario1" Nullable="false" />
+          <Property Type="String" Name="nom_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="est_consulta" Nullable="true" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarMascotasdeClientesFechas2_Result">
+          <Property Type="Int32" Name="id_consulta" Nullable="false" />
+          <Property Type="Int32" Name="cod_mascota" Nullable="true" />
+          <Property Type="String" Name="nom_mascota" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="cod_cliente" Nullable="false" />
+          <Property Type="String" Name="nom_cliente" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_cliente" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="fec_consulta" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="9" />
+          <Property Type="Int32" Name="cod_veterinario" Nullable="false" />
+          <Property Type="String" Name="nom_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="est_consulta" Nullable="true" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="usp_TopAtencionesClientesMascotasAño2_Result">
+          <Property Type="Int32" Name="cod_cliente" Nullable="true" />
+          <Property Type="String" Name="nom_cliente" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_Cliente" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Consultas_Totales" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_TopAtencionesMascotasAño2_Result">
+          <Property Type="Int32" Name="cod_mascota" Nullable="false" />
+          <Property Type="String" Name="nom_mascota" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="Consultas_Totales" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="vw_VistaVeterinario">
+          <Key>
+            <PropertyRef Name="cod_veterinario" />
+          </Key>
+          <Property Name="cod_veterinario" Type="Int32" Nullable="false" />
+          <Property Name="nom_veterinario" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ape_veterinario" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Departamento" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Provincia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="dni_vet" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="sueldo" Type="Int32" />
+          <Property Name="Estado" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="tel_veterinario" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="usp_ListarVeterinario_Result">
+          <Property Type="Int32" Name="cod_veterinario" Nullable="false" />
+          <Property Type="String" Name="nom_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ape_veterinario" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Departamento" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Provincia" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="dni_vet" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="sueldo" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="direccion" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="tel_veterinario" Nullable="true" MaxLength="30" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBVeterinariaModelStoreContainer" CdmEntityContainer="DBVeterinariaEntities">
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="DBVeterinariaModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="ape_cliente" ColumnName="ape_cliente" />
+                <ScalarProperty Name="dni_cli" ColumnName="dni_cli" />
+                <ScalarProperty Name="id_Ubigeo" ColumnName="id_Ubigeo" />
+                <ScalarProperty Name="dirección" ColumnName="dirección" />
+                <ScalarProperty Name="tel_cliente" ColumnName="tel_cliente" />
+                <ScalarProperty Name="Usu_Registro" ColumnName="Usu_Registro" />
+                <ScalarProperty Name="est_cli" ColumnName="est_cli" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fec_registro" ColumnName="fec_registro" />
+                <ScalarProperty Name="num_registro" ColumnName="num_registro" />
+                <ScalarProperty Name="fec_Ult_Mod" ColumnName="fec_Ult_Mod" />
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Consulta">
+            <EntityTypeMapping TypeName="DBVeterinariaModel.Consulta">
+              <MappingFragment StoreEntitySet="Consulta">
+                <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+                <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+                <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+                <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+                <ScalarProperty Name="est_consulta" ColumnName="est_consulta" />
+                <ScalarProperty Name="prec_consulta" ColumnName="prec_consulta" />
+                <ScalarProperty Name="igv" ColumnName="igv" />
+                <ScalarProperty Name="diagnostico" ColumnName="diagnostico" />
+                <ScalarProperty Name="fec_proxconsulta" ColumnName="fec_proxconsulta" />
+                <ScalarProperty Name="fec_Ult_Mod" ColumnName="fec_Ult_Mod" />
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Det_Consulta">
+            <EntityTypeMapping TypeName="DBVeterinariaModel.Det_Consulta">
+              <MappingFragment StoreEntitySet="Det_Consulta">
+                <ScalarProperty Name="id_Det_consulta" ColumnName="id_Det_consulta" />
+                <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+                <ScalarProperty Name="cod_medicamento" ColumnName="cod_medicamento" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="tratamiento" ColumnName="tratamiento" />
+                <ScalarProperty Name="fec_registro" ColumnName="fec_registro" />
+                <ScalarProperty Name="fec_Ult_Mod" ColumnName="fec_Ult_Mod" />
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Esp">
+            <EntityTypeMapping TypeName="DBVeterinariaModel.Esp">
+              <MappingFragment StoreEntitySet="Esp">
+                <ScalarProperty Name="cod_esp" ColumnName="cod_esp" />
+                <ScalarProperty Name="des_esp" ColumnName="des_esp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Especialidad">
+            <EntityTypeMapping TypeName="DBVeterinariaModel.Especialidad">
+              <MappingFragment StoreEntitySet="Especialidad">
+                <ScalarProperty Name="cod_especialidad" ColumnName="cod_especialidad" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mascota">
+            <EntityTypeMapping TypeName="DBVeterinariaModel.Mascota">
+              <MappingFragment StoreEntitySet="Mascota">
+                <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+                <ScalarProperty Name="cod_esp" ColumnName="cod_esp" />
+                <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="ape_cliente" ColumnName="ape_cliente" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="fec_nacimiento" ColumnName="fec_nacimiento" />
+                <ScalarProperty Name="est_mascota" ColumnName="est_mascota" />
+                <ScalarProperty Name="fec_Ult_Mod" ColumnName="fec_Ult_Mod" />
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medicamento">
+            <EntityTypeMapping TypeName="DBVeterinariaModel.Medicamento">
+              <MappingFragment StoreEntitySet="Medicamento">
+                <ScalarProperty Name="cod_medicamento" ColumnName="cod_medicamento" />
+                <ScalarProperty Name="des_medicamento" ColumnName="des_medicamento" />
+                <ScalarProperty Name="cod_tipomedicamento" ColumnName="cod_tipomedicamento" />
+                <ScalarProperty Name="prec_med" ColumnName="prec_med" />
+                <ScalarProperty Name="igv" ColumnName="igv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ubigeo">
+            <EntityTypeMapping TypeName="DBVeterinariaModel.Ubigeo">
+              <MappingFragment StoreEntitySet="Ubigeo">
+                <ScalarProperty Name="id_ubigeo" ColumnName="id_ubigeo" />
+                <ScalarProperty Name="IdDepa" ColumnName="IdDepa" />
+                <ScalarProperty Name="IdProv" ColumnName="IdProv" />
+                <ScalarProperty Name="IdDist" ColumnName="IdDist" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="DBVeterinariaModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Login_Usuario" ColumnName="Login_Usuario" />
+                <ScalarProperty Name="pass_Usuario" ColumnName="pass_Usuario" />
+                <ScalarProperty Name="niv_Usuario" ColumnName="niv_Usuario" />
+                <ScalarProperty Name="est_Usuario" ColumnName="est_Usuario" />
+                <ScalarProperty Name="fec_Usuario" ColumnName="fec_Usuario" />
+                <ScalarProperty Name="Usu_Registro" ColumnName="Usu_Registro" />
+                <ScalarProperty Name="fec_Ult_Mod" ColumnName="fec_Ult_Mod" />
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Veterinario">
+            <EntityTypeMapping TypeName="DBVeterinariaModel.Veterinario">
+              <MappingFragment StoreEntitySet="Veterinario">
+                <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+                <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+                <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+                <ScalarProperty Name="Usu_Registro" ColumnName="Usu_Registro" />
+                <ScalarProperty Name="sueldo" ColumnName="sueldo" />
+                <ScalarProperty Name="dni_vet" ColumnName="dni_vet" />
+                <ScalarProperty Name="foto_vet" ColumnName="foto_vet" />
+                <ScalarProperty Name="est_vet" ColumnName="est_vet" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="tel_veterinario" ColumnName="tel_veterinario" />
+                <ScalarProperty Name="cod_especialidad" ColumnName="cod_especialidad" />
+                <ScalarProperty Name="id_ubigeo" ColumnName="id_ubigeo" />
+                <ScalarProperty Name="fec_Ult_Mod" ColumnName="fec_Ult_Mod" />
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_ConsultarCliente" FunctionName="DBVeterinariaModel.Store.usp_ConsultarCliente" />
+          <EntitySetMapping Name="vw_VistaConsulta">
+            <EntityTypeMapping TypeName="DBVeterinariaModel.vw_VistaConsulta">
+              <MappingFragment StoreEntitySet="vw_VistaConsulta">
+                <ScalarProperty Name="ape_Cliente" ColumnName="ape_Cliente" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+                <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+                <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+                <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="est_consulta" ColumnName="est_consulta" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="distrito" ColumnName="distrito" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="tel_cliente" ColumnName="tel_cliente" />
+                <ScalarProperty Name="dni_cli" ColumnName="dni_cli" />
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+                <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+                <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+                <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_VistaCliente">
+            <EntityTypeMapping TypeName="DBVeterinariaModel.vw_VistaCliente">
+              <MappingFragment StoreEntitySet="vw_VistaCliente">
+                <ScalarProperty Name="distrito" ColumnName="distrito" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="fec_registro" ColumnName="fec_registro" />
+                <ScalarProperty Name="est_cli" ColumnName="est_cli" />
+                <ScalarProperty Name="tel_cliente" ColumnName="tel_cliente" />
+                <ScalarProperty Name="dirección" ColumnName="dirección" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="dni_cli" ColumnName="dni_cli" />
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_ActualizarCliente" FunctionName="DBVeterinariaModel.Store.usp_ActualizarCliente" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarCliente" FunctionName="DBVeterinariaModel.Store.usp_EliminarCliente" />
+          <FunctionImportMapping FunctionImportName="usp_InsertarCliente" FunctionName="DBVeterinariaModel.Store.usp_InsertarCliente" />
+          <FunctionImportMapping FunctionImportName="usp_ListarClientes" FunctionName="DBVeterinariaModel.Store.usp_ListarClientes" />
+          <FunctionImportMapping FunctionImportName="usp_ActualizarMascota" FunctionName="DBVeterinariaModel.Store.usp_ActualizarMascota" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarMascota" FunctionName="DBVeterinariaModel.Store.usp_EliminarMascota" />
+          <FunctionImportMapping FunctionImportName="usp_InsertarMascota" FunctionName="DBVeterinariaModel.Store.usp_InsertarMascota" />
+          <FunctionImportMapping FunctionImportName="usp_ListarConsultasMascotaFechas" FunctionName="DBVeterinariaModel.Store.usp_ListarConsultasMascotaFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarConsultasMascotaFechas_Result">
+                <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+                <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarConsultasVeterinarioFechas" FunctionName="DBVeterinariaModel.Store.usp_ListarConsultasVeterinarioFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarConsultasVeterinarioFechas_Result">
+                <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+                <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarMascotasdeClientesFechas" FunctionName="DBVeterinariaModel.Store.usp_ListarMascotasdeClientesFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarMascotasdeClientesFechas_Result">
+                <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+                <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="ape_cliente" ColumnName="ape_cliente" />
+                <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+                <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarMascotasPorEspecie" FunctionName="DBVeterinariaModel.Store.usp_ListarMascotasPorEspecie">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarMascotasPorEspecie_Result">
+                <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+                <ScalarProperty Name="cod_esp" ColumnName="cod_esp" />
+                <ScalarProperty Name="des_esp" ColumnName="des_esp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ConsultasXAño" FunctionName="DBVeterinariaModel.Store.usp_ConsultasXAño">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ConsultasXAño_Result">
+                <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+                <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+                <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+                <ScalarProperty Name="dni_cli" ColumnName="dni_cli" />
+                <ScalarProperty Name="tel_cliente" ColumnName="tel_cliente" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="distrito" ColumnName="distrito" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="est_consulta" ColumnName="est_consulta" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+                <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+                <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+                <ScalarProperty Name="cod_mascota1" ColumnName="cod_mascota1" />
+                <ScalarProperty Name="cod_esp" ColumnName="cod_esp" />
+                <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+                <ScalarProperty Name="cod_cliente1" ColumnName="cod_cliente1" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="ape_cliente" ColumnName="ape_cliente" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="fec_nacimiento" ColumnName="fec_nacimiento" />
+                <ScalarProperty Name="est_mascota" ColumnName="est_mascota" />
+                <ScalarProperty Name="fec_Ult_Mod" ColumnName="fec_Ult_Mod" />
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TopAtencionesClientesMascotasAño" FunctionName="DBVeterinariaModel.Store.usp_TopAtencionesClientesMascotasAño">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_TopAtencionesClientesMascotasAño_Result">
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+                <ScalarProperty Name="Consultas_Totales" ColumnName="Consultas Totales" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TopAtencionesMascotasAño" FunctionName="DBVeterinariaModel.Store.usp_TopAtencionesMascotasAño">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_TopAtencionesMascotasAño_Result">
+                <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+                <ScalarProperty Name="Consultas_Totales" ColumnName="Consultas Totales" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TopMedicinasXAño" FunctionName="DBVeterinariaModel.Store.usp_TopMedicinasXAño">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_TopMedicinasXAño_Result">
+                <ScalarProperty Name="cod_medicamento" ColumnName="cod_medicamento" />
+                <ScalarProperty Name="des_medicamento" ColumnName="des_medicamento" />
+                <ScalarProperty Name="Cantidad_recetadas" ColumnName="Cantidad recetadas" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ResumenConsultasXAño" FunctionName="DBVeterinariaModel.Store.usp_ResumenConsultasXAño">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ResumenConsultasXAño_Result">
+                <ScalarProperty Name="Consultas_Totales" ColumnName="Consultas Totales" />
+                <ScalarProperty Name="Ingresos_Generados" ColumnName="Ingresos Generados" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarConsultasMascotaFechas2" FunctionName="DBVeterinariaModel.Store.usp_ListarConsultasMascotaFechas2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarConsultasMascotaFechas2_Result">
+                <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+                <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+                <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="ape_Cliente" ColumnName="ape_Cliente" />
+                <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+                <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+                <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+                <ScalarProperty Name="est_consulta" ColumnName="est_consulta" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarConsultasMascotaFecha" FunctionName="DBVeterinariaModel.Store.usp_ListarConsultasMascotaFecha">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarConsultasMascotaFecha_Result">
+                <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+                <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+                <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+                <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="ape_Cliente" ColumnName="ape_Cliente" />
+                <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+                <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+                <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+                <ScalarProperty Name="est_consulta" ColumnName="est_consulta" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarConsultasVeterinarioFecha" FunctionName="DBVeterinariaModel.Store.usp_ListarConsultasVeterinarioFecha">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarConsultasVeterinarioFecha_Result">
+                <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+                <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+                <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+                <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+                <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarConsultasVeterinarioFechas2" FunctionName="DBVeterinariaModel.Store.usp_ListarConsultasVeterinarioFechas2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarConsultasVeterinarioFechas2_Result">
+                <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+                <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+                <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+                <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+                <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+                <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarMascotasPorEspecie2" FunctionName="DBVeterinariaModel.Store.usp_ListarMascotasPorEspecie2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarMascotasPorEspecie2_Result">
+                <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+                <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+                <ScalarProperty Name="cod_esp" ColumnName="cod_esp" />
+                <ScalarProperty Name="des_esp" ColumnName="des_esp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarMascotasdeClientesFecha" FunctionName="DBVeterinariaModel.Store.usp_ListarMascotasdeClientesFecha">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarMascotasdeClientesFecha_Result">
+                <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+                <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+                <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="ape_cliente" ColumnName="ape_cliente" />
+                <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+                <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="cod_veterinario1" ColumnName="cod_veterinario1" />
+                <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+                <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+                <ScalarProperty Name="est_consulta" ColumnName="est_consulta" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarMascotasdeClientesFechas2" FunctionName="DBVeterinariaModel.Store.usp_ListarMascotasdeClientesFechas2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarMascotasdeClientesFechas2_Result">
+                <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+                <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+                <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="ape_cliente" ColumnName="ape_cliente" />
+                <ScalarProperty Name="fec_consulta" ColumnName="fec_consulta" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+                <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+                <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+                <ScalarProperty Name="est_consulta" ColumnName="est_consulta" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TopAtencionesClientesMascotasAño2" FunctionName="DBVeterinariaModel.Store.usp_TopAtencionesClientesMascotasAño2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_TopAtencionesClientesMascotasAño2_Result">
+                <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="ape_Cliente" ColumnName="ape_Cliente" />
+                <ScalarProperty Name="Consultas_Totales" ColumnName="Consultas Totales" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TopAtencionesMascotasAño2" FunctionName="DBVeterinariaModel.Store.usp_TopAtencionesMascotasAño2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_TopAtencionesMascotasAño2_Result">
+                <ScalarProperty Name="cod_mascota" ColumnName="cod_mascota" />
+                <ScalarProperty Name="nom_mascota" ColumnName="nom_mascota" />
+                <ScalarProperty Name="Consultas_Totales" ColumnName="Consultas Totales" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vw_VistaVeterinario">
+            <EntityTypeMapping TypeName="DBVeterinariaModel.vw_VistaVeterinario">
+              <MappingFragment StoreEntitySet="vw_VistaVeterinario">
+                <ScalarProperty Name="tel_veterinario" ColumnName="tel_veterinario" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="sueldo" ColumnName="sueldo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="dni_vet" ColumnName="dni_vet" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+                <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+                <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarVeterinario" FunctionName="DBVeterinariaModel.Store.usp_ListarVeterinario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBVeterinariaModel.usp_ListarVeterinario_Result">
+                <ScalarProperty Name="cod_veterinario" ColumnName="cod_veterinario" />
+                <ScalarProperty Name="nom_veterinario" ColumnName="nom_veterinario" />
+                <ScalarProperty Name="ape_veterinario" ColumnName="ape_veterinario" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="dni_vet" ColumnName="dni_vet" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="sueldo" ColumnName="sueldo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="tel_veterinario" ColumnName="tel_veterinario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
